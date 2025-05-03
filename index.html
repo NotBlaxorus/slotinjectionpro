@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slot Injection Pro</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Page-specific styles for the burger menu and QR codes -->
+  <style>
+    /* Burger Menu & Off-Canvas Nav */
+    .burger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .burger .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #ffffff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Off-canvas menu for mobile */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: #1c1c1c;
+      padding: 2rem;
+      transition: right 0.3s ease-in-out;
+      list-style: none;
+    }
+
+    /* Slide-in animation */
+    .nav-links.active {
+      right: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+      padding: 0.75rem 0;
+    }
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+
+    /* Increase spacing between QR codes */
+    .qr-codes {
+      gap: 3rem;
+    }
+
+    /* Desktop view overrides */
+    @media (min-width: 769px) {
+      .burger {
+        display: none;
+      }
+      .nav-links {
+        position: static;
+        right: auto;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        background: none;
+        padding: 0;
+        transition: none;
+        display: flex;
+      }
+      .nav-links li {
+        margin-left: 1rem;
+        border-bottom: none;
+        padding: 0;
+      }
+    }
+    .qr-item img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 0.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar (Sticky) -->
+  <nav class="navbar">
+    <!-- Logo + Brand -->
+    <div class="nav-left">
+      <img src="images/logo.png" alt="Slot Injection Pro Logo" class="app-logo" />
+      <span class="nav-brand">Slot Injection Pro</span>
+    </div>
+    <!-- Burger menu icon -->
+    <div class="burger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/bugs-updates.html">Bugs &amp; Updates</a></li>
+      <li><a href="affiliate.html">Affiliate Program</a></li>
+      <li><a href="pages/support.html">Support</a></li>
+      <li><a href="pages/privacy.html">Privacy Information</a></li>
+      <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
+      <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION (Vertical Gradient) -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Slot Injection Pro</h1>
+      <p class="hero-description">
+        Track and analyze your gameplay with ease. Slot Injection Pro offers 
+        powerful tools for recording sessions, exploring data, and enjoying a 
+        better understanding of your gaming activity—all designed for tracking 
+        and entertainment.
+      </p>
+      <!-- Call to Action -->
+      <a href="#download-section" class="cta-button">Download Now</a>
+    </div>
+  </header>
+
+  <!-- SECTION 1: Text on Left, Image on Right -->
+  <section class="screenshots" id="screenshots-1">
+    <div class="screenshots-grid">
+      <!-- Text (left) -->
+      <div class="screenshots-content">
+        <h2>Your Ultimate Tracking Companion</h2>
+        <p>
+            Get a complete overview of your slot gameplay with Slot Injection Pro. 
+            Designed for simplicity and convenience, the app makes it easy to log 
+            sessions and explore data for a deeper understanding of your activity.
+        </p>
+        <a href="#download-section" class="cta-button">Download Now</a>
+      </div>
+
+      <!-- Single Image (right) -->
+      <div class="screenshots-images single">
+        <img src="images/1.jpg" alt="Screenshot 1" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Triple Images (Reversed => images left, text right) -->
+  <!-- We add 'left-align' to the .screenshots-content so that ONLY this section's text is left aligned. -->
+  <section class="screenshots" id="screenshots-2">
+    <div class="screenshots-grid reversed">
+      <div class="screenshots-content left-align">
+        <h2>Powerful Tools for Tracking and Insights</h2>
+        <p>
+            Explore the features that make Slot Injection Pro essential for slot enthusiasts:<br><br>
+- Access shared data insights for aggregated slot statistics.<br>
+- Analyze machine performance trends over time.<br>
+- Join groups and share anonymized data with others.
+        </p>
+        <a href="#download-section" class="cta-button">Download Now</a>
+      </div>
+
+      <div class="screenshots-images triple">
+        <img src="images/2.jpg" alt="Screenshot 2" />
+        <img src="images/3.jpg" alt="Screenshot 3" />
+        <img src="images/4.jpg" alt="Screenshot 4" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Text on Left, Image on Right -->
+  <section class="screenshots" id="screenshots-3">
+    <div class="screenshots-grid">
+      <div class="screenshots-content">
+        <h2>Dive Into In-Depth Analytics</h2>
+        <p>
+            Slot Injection Pro provides tools to track your gameplay activity with 
+            detailed charts, group features, and shared data. Enjoy tracking and 
+            exploring your gaming history for fun and entertainment.
+        </p>
+        <a href="#download-section" class="cta-button">Download Now</a>
+      </div>
+      
+      <!-- Single Image on Right -->
+      <div class="screenshots-images single">
+        <img src="images/5.jpg" alt="Screenshot 5" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL DOWNLOAD SECTION (QR Codes) -->
+  <section class="download-section" id="download-section">
+    <h2>Ready to Download?</h2>
+    <p>
+      Scan the QR code below for your platform to get started immediately. 
+      Slot Injection Pro is available on both Apple and Android devices.
+    </p>
+    <div class="qr-codes">
+      <!-- Placeholder QR Codes for Apple & Android -->
+      <div class="qr-item">
+        <a href="https://apps.apple.com/us/app/slot-injection-pro/id6740422062" target="_blank" rel="noopener noreferrer">
+          <img src="images/ios-badge.png" alt="Apple QR Code" />
+        </a>
+        <p>Download for iOS</p>
+      </div>
+      <div class="qr-item">
+        <a href="https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US" target="_blank" rel="noopener noreferrer">
+          <img src="images/android-badge.png" alt="Android QR Code" />
+        </a>
+        <p>Download for Android</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Slot Injection LLC. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Burger menu toggle functionality
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (
+        navLinks.classList.contains('active') &&
+        !navLinks.contains(event.target) &&
+        !burger.contains(event.target)
+      ) {
+        navLinks.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
