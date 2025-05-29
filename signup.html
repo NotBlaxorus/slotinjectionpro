@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply to Join the Affiliate Team</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfwOkwrAAAAABSfSGhA-d5igsDr6FcF4aXcs_7t"></script>
+</head>
+<body>
+  <main class="affiliate-container">
+    <!-- Header Section -->
+    <section class="signup-header card">
+      <h1>Apply to Join the Affiliate Team 💼</h1>
+      <p class="subtext">Let us know a bit about you and where you plan to promote.</p>
+      <span class="badge">Limited Spots Available</span>
+    </section>
+
+    <!-- Signup Form -->
+    <form id="signup-form" action="/affiliate/signup" method="POST" class="signup-form card" style="margin-top:2rem;">
+      
+      <!-- Step 1: Basic Info -->
+      <div class="form-section">
+        <h2>Step 1: Basic Info</h2>
+        <div class="form-group">
+          <label for="first-name">🧑 First Name</label>
+          <input type="text" id="first-name" name="firstName" required />
+        </div>
+        <div class="form-group">
+          <label for="last-name">👤 Last Name</label>
+          <input type="text" id="last-name" name="lastName" required />
+        </div>
+        <div class="form-group">
+          <label for="email">📧 Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="handle">📱 Social Media Handle <small>(Optional)</small></label>
+          <input type="text" id="handle" name="handle" />
+        </div>
+      </div>
+
+      <!-- Step 2: Platform Selection -->
+      <div class="form-section">
+        <h2>Step 2: Where will you promote?</h2>
+        <p>Select all that apply</p>
+        <div class="platform-grid">
+          <button type="button" class="platform-toggle" data-value="YouTube">🎥 YouTube</button>
+          <button type="button" class="platform-toggle" data-value="Instagram">📸 Instagram</button>
+          <button type="button" class="platform-toggle" data-value="TikTok">🎵 TikTok</button>
+          <button type="button" class="platform-toggle" data-value="Facebook">💬 Facebook</button>
+          <button type="button" class="platform-toggle" data-value="X">✖️ X</button>
+          <button type="button" class="platform-toggle" data-value="Reddit">👾 Reddit</button>
+        </div>
+        <input type="hidden" name="platforms" id="platforms-input" />
+      </div>
+
+      <!-- Step 3: About You -->
+      <div class="form-section">
+        <h2>Step 3: Tell Us About You</h2>
+        <div class="form-group">
+          <label for="message">📝 Why you want to join & how you plan to promote</label>
+          <textarea id="message" name="message" rows="5" placeholder="Ex: I run a YouTube channel about slot machines with 5K followers…" required></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">🚀 Submit Application</button>
+        <p class="note">🔒 Your info is safe & private • We’ll get back to you within 1–2 business days.</p>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // Handle platform toggles
+    const toggles = document.querySelectorAll('.platform-toggle');
+    const platformsInput = document.getElementById('platforms-input');
+    toggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        const selected = Array.from(toggles)
+          .filter(b => b.classList.contains('active'))
+          .map(b => b.getAttribute('data-value'));
+        platformsInput.value = selected.join(',');
+      });
+    });
+
+    // Handle form submission with reCaptcha v3
+    const signupForm = document.getElementById('signup-form');
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      grecaptcha.ready(() => {
+        grecaptcha.execute('6LfwOkwrAAAAABSfSGhA-d5igsDr6FcF4aXcs_7t', {action: 'signup'}).then(async (token) => {
+          // Gather form data including recaptcha token
+          const formData = {
+            firstName: document.getElementById('first-name').value.trim(),
+            lastName: document.getElementById('last-name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            handle: document.getElementById('handle').value.trim(),
+            platforms: document.getElementById('platforms-input').value,
+            message: document.getElementById('message').value.trim(),
+            recaptcha: token
+          };
+          try {
+            const res = await fetch('/affiliate/signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData)
+            });
+            const result = await res.json();
+            if (res.ok) {
+              signupForm.reset();
+              toggles.forEach(btn => btn.classList.remove('active'));
+              document.getElementById('platforms-input').value = '';
+              alert('Success! Your application has been submitted. We will get back to you within 24 hours.');
+            } else {
+              alert(result.error || 'Failed to submit application.');
+            }
+          } catch (err) {
+            console.error('Signup error:', err);
+            alert('Network error. Please try again later.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

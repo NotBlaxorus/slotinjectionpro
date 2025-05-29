@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affiliate Login — Slot Injection Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .card {
+      background-color: #121212;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      margin: 2rem auto;
+    }
+    .card input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #1c1c1c;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .card button {
+      width: 100%;
+      background: linear-gradient(to right, #a600ff, #ff00c8);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .card a.forgot {
+      display: block;
+      text-align: right;
+      font-size: 0.875rem;
+      color: #aaa;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    .card a.forgot:hover {
+      text-decoration: underline;
+    }
+    h1.login-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    p.login-subtitle {
+      text-align: center;
+      color: #aaa;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="images/logo.png" alt="Slot Injection Pro Logo" class="app-logo" />
+      <span class="nav-brand">Slot Injection Pro</span>
+    </div>
+    <div class="burger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/bugs-updates.html">Bugs &amp; Updates</a></li>
+      <li><a href="affiliate.html">Affiliate Program</a></li>
+      <li><a href="pages/support.html">Support</a></li>
+      <li><a href="pages/privacy.html">Privacy Information</a></li>
+      <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
+      <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+    </ul>
+  </nav>
+  <main class="affiliate-container">
+    <h1 class="login-title">Welcome Back, Affiliate 👋</h1>
+    <p class="login-subtitle">Secure login to your earnings dashboard</p>
+    <div class="card">
+      <form id="login-form">
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button id="btn-login" type="button">Login</button>
+        <a href="#" class="forgot">Forgot password?</a>
+      </form>
+    </div>
+    <p style="text-align:center; color:#ccc; margin-top:1rem;">
+      <a href="affiliate.html" style="text-decoration:underline; color:#ccc;">← Back to Affiliate Page</a>
+    </p>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Burger menu toggle only
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.addEventListener('click', (event) => {
+      if (
+        navLinks.classList.contains('active') &&
+        !navLinks.contains(event.target) &&
+        !burger.contains(event.target)
+      ) {
+        navLinks.classList.remove('active');
+      }
+    });
+  </script>
+<script>
+  console.log('loginAffiliate script loaded');
+  async function loginAffiliate() {
+    console.log('loginAffiliate called');
+    const form = document.getElementById('login-form');
+    let errorP = form.querySelector('p.error-msg');
+    if (!errorP) {
+      errorP = document.createElement('p');
+      errorP.className = 'error-msg';
+      errorP.style.color = 'red';
+      errorP.style.marginBottom = '1rem';
+      form.prepend(errorP);
+    }
+    errorP.textContent = '';
+
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const password = form.querySelector('input[name="password"]').value;
+
+    try {
+      const res = await fetch('https://slotinjectionpro-backend.onrender.com/affiliate/login', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({email, password})
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+
+      if (data.is_affiliate) {
+        console.log('Affiliate login successful, redirecting to dashboard');
+        localStorage.setItem('access_token', data.access_token);
+        localStorage.setItem('refresh_token', data.refresh_token);
+        window.location.href = 'affiliate_dashboard.html';
+      } else {
+        alert('You are not an affiliate yet. Become an affiliate today and earn generous commissions!');
+        window.location.href = 'affiliate.html';
+      }
+    } catch (err) {
+      console.error(err);
+      errorP.textContent = err.message;
+    }
+  }
+</script>
+<script>
+  const btnLogin = document.getElementById('btn-login');
+  if (btnLogin) {
+    btnLogin.addEventListener('click', loginAffiliate);
+  } else {
+    console.error('Login button not found');
+  }
+</script>
+</body>
+</html>

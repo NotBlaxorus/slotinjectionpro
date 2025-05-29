@@ -1,0 +1,827 @@
+/* ------------------------------ */
+/* GLOBAL STYLES */
+/* ------------------------------ */
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    /* Update to your desired high-contrast green */
+    --primary-color: #06c167;
+    --primary-color-hover: #08e17a;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark mode background */
+    color: #ffffff;           /* Light text for dark background */
+    line-height: 1.6;
+  }
+  
+  /* ------------------------------ */
+  /* NAVBAR (Sticky) */
+  /* ------------------------------ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1c1c1c;
+    padding: 1rem 2rem;
+  }
+  
+  /* Left side with logo + brand */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .app-logo {
+    width: 40px;  /* Adjust logo size as needed */
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: var(--primary-color);
+  }
+  
+  /* ------------------------------ */
+  /* HERO SECTION (Vertical Gradient) */
+  /* ------------------------------ */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 2rem;
+    text-align: center;
+    /* Vertical gradient */
+    background: linear-gradient(to bottom, #242424, #121212);
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    color: #dddddd;
+  }
+  
+  /* ------------------------------ */
+  /* CTA BUTTONS (Green) */
+  /* ------------------------------ */
+  .cta-button {
+    background-color: var(--primary-color);
+    color: #121212;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: var(--primary-color-hover);
+  }
+  
+  /* ------------------------------ */
+  /* SECTIONS - SCREENSHOTS */
+  /* ------------------------------ */
+  .screenshots {
+    padding: 2rem;
+    background-color: #121212;
+  }
+  
+  /* Center the entire row + limit width */
+  .screenshots-grid {
+    /* This keeps text+image row "toward" the center (not stretched full) */
+    max-width: 1100px;
+    margin: 0 auto;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap; /* For responsiveness on smaller screens */
+  }
+  
+  /* If you need images left / text right, use reversed */
+  .screenshots-grid.reversed {
+    flex-direction: row-reverse;
+  }
+  
+  /* TEXT content */
+  .screenshots-content {
+    flex: 1;
+    /* Right align the text by default */
+    text-align: right;
+  }
+  
+  .screenshots-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .screenshots-content p {
+    max-width: 500px; /* limit paragraph width */
+    margin-left: auto; /* extra push if you want it tighter to the right */
+    margin-bottom: 1.5rem;
+    color: #dddddd;
+  }
+  
+  /* IMAGES container */
+  .screenshots-images {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* In case multiple images */
+    justify-content: center; /* Center the image(s) in its half */
+  }
+  
+  .screenshots-images img {
+    width: 200px;   /* Adjust for your 9:16 ratio */
+    height: auto;
+    border: 2px solid #ffffff22;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .screenshots-images img:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+  }
+  
+  /* For triple images (Section 2) */
+  .screenshots-images.triple {
+    justify-content: center; 
+    /* Force the 3 images to stay on one row on large screens */
+    flex-wrap: nowrap; 
+  }
+  @media (max-width: 768px) {
+    /* On smaller screens, allow them to wrap so they don't overflow */
+    .screenshots-images.triple {
+      flex-wrap: wrap;
+    }
+  }
+  
+  /* Stack vertically on smaller screens */
+  @media (max-width: 768px) {
+    .screenshots-grid,
+    .screenshots-grid.reversed {
+      flex-direction: column;
+      text-align: center; 
+    }
+  
+    .screenshots-content {
+      text-align: center; /* On mobile, center text for easier reading */
+      margin-left: 0;     /* Reset if you changed margin-left above */
+    }
+  }
+  
+  /* 
+    --------------------------------------------------
+    ADDITION: This class overrides the default right 
+    alignment for Section 2's text, making it left. 
+    --------------------------------------------------
+  */
+  .screenshots-content.left-align {
+    text-align: left; 
+    margin-left: 0; 
+  }
+  
+  /* ------------------------------ */
+  /* FINAL DOWNLOAD SECTION (QRs) */
+  /* ------------------------------ */
+  .download-section {
+    padding: 2rem;
+    background-color: #1c1c1c;
+    text-align: center;
+  }
+  
+  .download-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .download-section p {
+    max-width: 700px;
+    margin: 0.5rem auto 2rem;
+    color: #dddddd;
+  }
+  
+  /* QR codes layout */
+  .qr-codes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;  /* Adjust to wrap on smaller screens */
+  }
+  
+  .qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .qr-item img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  
+  /* ------------------------------ */
+  /* FOOTER */
+  /* ------------------------------ */
+  .footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #1c1c1c;
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+  }
+  
+  /* ------------------------------ */
+  /* AFFILIATE PAGE STYLES         */
+  /* ------------------------------ */
+.affiliate-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+/* Info icon styling */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+  #login-form, #dashboard {
+    max-width: 400px;
+    margin: 1.5rem auto;
+  }
+  #login-form h2, #dashboard h2, #dashboard h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  /* Inputs and buttons */
+  #login-form input, #login-form button {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 1rem;
+  }
+  #login-form input {
+    background: #333;
+    color: #fff;
+  }
+  #login-form button {
+    background: var(--primary-color);
+    color: #121212;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #dashboard button {
+    display: block;
+    margin: 2rem auto 0;
+  }
+
+
+  /* Improved spacing for affiliate cards */
+  #login-form, #dashboard .card {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  /* Center headings inside cards */
+  #dashboard .card h2,
+  #dashboard .card h3 {
+    margin-bottom: 1rem;
+  }
+
+  /* Color-code summary values */
+  /* Removed color coding for #earned, #paid, #owed */
+
+  /* Payout list items spacing */
+  #payout-list li {
+    margin-bottom: 0.75rem;
+  }
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Hero adjustments */
+  .hero {
+    padding: 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Navigation spacing */
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  .nav-links {
+    width: 200px;
+    padding: 1.5rem;
+  }
+
+  /* Screenshots stacking */
+  .screenshots-grid {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .screenshots-content,
+  .screenshots-content.left-align {
+    text-align: center;
+    margin: 0 0 1rem;
+  }
+  .screenshots-images,
+  .screenshots-images.triple {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .screenshots-images img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Download section */
+  .download-section {
+    padding: 1rem;
+  }
+  .qr-codes {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .qr-item img {
+    width: 120px;
+  }
+
+  /* Footer text size */
+  .footer p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ------------------------------ */
+/* DASHBOARD LAYOUT & CARDS      */
+/* ------------------------------ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.dashboard-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .dashboard-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.card {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+.profile-overview.sticky {
+  position: static;
+  top: auto;
+  z-index: auto;
+}
+.card.glass {
+  background: rgba(28, 28, 28, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+.profile-item strong {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: #cccccc;
+}
+.profile-item span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.profile-actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+.profile-actions button {
+  background: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #121212;
+  font-weight: bold;
+}
+
+/* Earnings Overview */
+.earnings-overview h2,
+.latest-referrals h2,
+.payout-history h2 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+.stat-card {
+  background: #252525;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+.stat-card small {
+  color: #aaaaaa;
+}
+.stat-card strong {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Tables */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.responsive-table th,
+.responsive-table td {
+  border: 1px solid #333333;
+  padding: 0.75rem;
+  text-align: left;
+}
+.responsive-table th {
+  background-color: #1f1f1f;
+}
+@media (max-width: 600px) {
+  .responsive-table thead {
+    display: none;
+  }
+  .responsive-table tr {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+}
+
+/* Quick Actions Buttons */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.quick-actions button {
+  flex: 1 1 calc(50% - 1rem);
+  padding: 0.75rem;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #121212;
+  font-weight: bold;
+}
+@media (min-width: 600px) {
+  .quick-actions button {
+    flex: 0 0 auto;
+  }
+}
+
+/* ------------------------------ */
+/* DASHBOARD CENTERING OVERRIDES  */
+/* ------------------------------ */
+.latest-referrals,
+.payout-history,
+.quick-actions {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.status-converted {
+  color: #06c167;
+  font-weight: bold;
+}
+.status-trial {
+  color: #ffa500;
+  font-weight: bold;
+}
+.status-completed {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Welcome message styling */
+.welcome-message {
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
+  text-align: center;
+  background: #1e1e1e;
+  border-radius: 8px;
+}
+.welcome-message h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+/* Table filters */
+.table-filters {
+  text-align: right;
+  margin-bottom: 0.75rem;
+}
+.table-filters label {
+  margin-right: 0.5rem;
+  color: #cccccc;
+}
+.table-filters select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #252525;
+  color: #fff;
+}
+
+/* Alternating row backgrounds and hover effect */
+.responsive-table tbody tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+.responsive-table tbody tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* ------------------------------ */
+/* EDIT PROFILE MODAL STYLES     */
+/* ------------------------------ */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal.hidden {
+  display: none;
+}
+
+/* Utility hidden class */
+.hidden {
+  display: none !important;
+}
+.modal-content {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+#edit-profile-modal input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #252525;
+  border: 2px solid #555555;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+/* Inline radio button labels */
+#edit-profile-modal input[type="radio"] + label {
+  display: inline-block !important;
+  margin-left: 0.25rem;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+#edit-profile-modal input[type="radio"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+#edit-profile-modal label {
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+.modal-content h3 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #cccccc;
+}
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background-color: #252525;
+  color: #ffffff;
+}
+.form-actions {
+  text-align: right;
+  margin-top: 1rem;
+}
+.form-actions button {
+  background-color: var(--primary-color);
+  color: #121212;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.signup-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+.signup-header h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.signup-header .subtext {
+  color: #cccccc;
+  margin-bottom: 0.75rem;
+}
+.signup-header .badge {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #121212;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.signup-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+.form-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.25rem;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background-color: #252525;
+  color: #ffffff;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.platform-toggle {
+  background: #252525;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  padding: 0.75rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.platform-toggle.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #121212;
+}
+
+.form-actions {
+  text-align: center;
+}
+.form-actions .btn-primary {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+}
+.form-actions .note {
+  color: #aaaaaa;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.grecaptcha-badge {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: 10px !important;
+}
