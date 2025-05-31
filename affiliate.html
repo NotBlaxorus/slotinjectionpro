@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slot Injection Pro</title>
+  <link rel="shortcut icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Burger Menu & Off-Canvas Nav */
+    .burger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+      margin-left: auto;
+    }
+    .burger .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #ffffff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: #1c1c1c;
+      padding: 2rem;
+      transition: right 0.3s ease-in-out;
+      list-style: none;
+      z-index: 1000;
+    }
+    .nav-links.active {
+      right: 0;
+    }
+    .nav-links li {
+      border-bottom: 1px dotted rgba(255,255,255,0.5);
+      padding: 0.75rem 0;
+    }
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+    @media (min-width: 769px) {
+      .burger {
+        display: none;
+      }
+      .nav-links {
+        position: static;
+        right: auto;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        background: none;
+        padding: 0;
+        transition: none;
+        display: flex;
+      }
+      .nav-links li {
+        margin-left: 1rem;
+        border-bottom: none;
+        padding: 0;
+      }
+    }
+    /* Align nav items */
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* Simple overrides for the dashboard */
+    #dashboard { max-width: 600px; margin: 2rem auto; }
+    .card { background: #1c1c1c; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+    .hidden { display: none; }
+    button { background: var(--primary-color); color: #121212; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+    .signup-button {
+      background-color: #800080;
+      color: #ffffff;
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+    .login-button {
+      background-color: var(--primary-color);
+      color: #121212;
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    /* Space below description */
+    #affiliate-info p {
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px #800080; }
+      to   { box-shadow: 0 0 20px #800080; }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 4rem 2rem;
+      background: #1c1c1c;
+      color: #fff;
+    }
+    .hero-text { flex: 1; min-width: 300px; }
+    .hero-text h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero-text p { font-size: 1.25rem; margin-bottom: 2rem; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(90deg, #800080, #ff1493);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      color: #fff;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: none;
+      border: 2px solid #28a745;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      color: #28a745;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .hero-visual img { max-width: 400px; width: 100%; }
+
+    /* Value Props */
+    .values { padding: 4rem 2rem; background: #121212; color: #fff; }
+    .values h2 { text-align: center; margin-bottom: 2rem; }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .value-item { text-align: center; }
+    .value-item .icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+    .value-item h3 { margin-bottom: 0.5rem; }
+
+    /* How It Works */
+    .how-it-works { padding: 4rem 2rem; background: #1c1c1c; color: #fff; }
+    .how-it-works h2 { text-align: center; margin-bottom: 2rem; }
+    .steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+    .step { width: 200px; text-align: center; }
+    .step-number {
+      width: 40px; height: 40px;
+      background: #28a745;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      margin: 0 auto 1rem;
+    }
+
+    /* Testimonial */
+    .testimonial { padding: 4rem 2rem; background: #121212; color: #fff; }
+    .testimonial blockquote {
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .testimonial blockquote footer {
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    /* Final CTA */
+    .final-cta { padding: 4rem 2rem; text-align: center; background: linear-gradient(135deg, #121212, #2c2c2c); color: #fff; }
+    .final-cta h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .final-cta-subtitle {
+      font-size: 1.25rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    .final-cta .btn-primary { margin-bottom: 1rem; }
+    .final-cta a { color: #28a745; text-decoration: none; }
+    .final-cta-divider {
+      width: 80px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      margin: 1.5rem auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; }
+      .hero-buttons { flex-direction: column; }
+    }
+
+    /* Desktop-specific adjustments */
+    @media (min-width: 1024px) {
+      /* Hero section: keep text and visual side-by-side without wrapping */
+      .hero {
+        flex-wrap: nowrap;
+        padding: 6rem 4rem;
+      }
+      .hero-text {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      .hero-visual {
+        flex: 0 0 45%;
+        max-width: 45%;
+        margin-left: auto;
+      }
+      .hero-visual img {
+        max-width: 100%;
+        height: auto;
+      }
+      /* Value props: ensure three columns on larger screens */
+      .values .value-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      /* Steps: spread evenly on desktop */
+      .how-it-works .steps {
+        justify-content: space-between;
+      }
+      /* Final CTA: constrain width and center */
+      .final-cta {
+        padding: 6rem 4rem;
+      }
+      .final-cta .btn-primary {
+        padding: 1rem 3rem;
+        font-size: 1.125rem;
+      }
+
+      /* Full-bleed backgrounds and centered content on desktop */
+      .hero,
+      .values,
+      .how-it-works,
+      .testimonial,
+      .final-cta {
+        /* extend background to viewport edges */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        width: 100vw;
+      }
+      /* Constrain inner text and center it */
+      .hero-text,
+      .values .value-grid,
+      .how-it-works .steps,
+      .testimonial blockquote,
+      .final-cta > * {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      /* Center text in non-flex sections */
+      .values h2,
+      .how-it-works h2,
+      .testimonial blockquote,
+      .final-cta h2 {
+        text-align: center;
+      }
+      .values .value-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <!-- Logo + Brand -->
+    <div class="nav-left">
+      <img src="images/logo.png" alt="Slot Injection Pro Logo" class="app-logo" />
+      <span class="nav-brand">Slot Injection Pro</span>
+    </div>
+    <!-- Burger menu icon -->
+    <div class="burger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/bugs-updates.html">Bugs &amp; Updates</a></li>
+      <li><a href="affiliate.html">Affiliate Program</a></li>
+      <li><a href="pages/support.html">Support</a></li>
+      <li><a href="pages/privacy.html">Privacy Information</a></li>
+      <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
+      <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+    </ul>
+  </nav>
+
+  <div id="affiliate-info">
+  <main class="affiliate-container">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Earn Big by Promoting Slot Injection Pro</h1>
+      <p>Join our elite affiliate team and unlock generous commissions, exclusive tools, and VIP-level support.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="window.location.href='signup.html'">🔮 Get Started Today</button>
+        <button id="btn-show-login" class="btn-secondary" onclick="window.location.href='log_in.html'">✅ Login to Dashboard</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Optional: Add mockup or graph here -->
+      <img src="images/hero-mockup.png" alt="App mockup with earnings" />
+    </div>
+  </section>
+
+  <section class="values">
+    <h2>💰 Why Join?</h2>
+    <div class="value-grid">
+      <div class="value-item">
+        <span class="icon">💸</span>
+        <h3>High Commissions</h3>
+        <p>Earn up to <b>50%</b> commission for every paying user you refer.</p>
+      </div>
+      <div class="value-item">
+        <span class="icon">🎯</span>
+        <h3>Custom Referral Code</h3>
+        <p>Personalized code and tracking dashboard to monitor your success.</p>
+      </div>
+      <div class="value-item">
+        <span class="icon">📊</span>
+        <h3>Real-Time Analytics</h3>
+        <p>See exactly how your referrals are performing, anytime.</p>
+      </div>
+      <div class="value-item">
+        <span class="icon">🙌</span>
+        <h3>Dedicated Support</h3>
+        <p>Get priority help and resources tailored to your goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>🧠 How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Apply &amp; Get Approved</h3>
+        <p>Submit your info and receive your unique referral code.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Share With Your Audience</h3>
+        <p>Promote via social media, YouTube, TikTok, or private chats.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Get Paid Monthly</h3>
+        <p>Earn commissions for every subscriber who signs up through you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <img src="images/avatar-jackpotfamous.jpg" alt="@JackpotFamous avatar" class="testimonial-avatar" />
+    <blockquote>
+      “I shared my code with my YouTube subscribers and made $2000+ in the first month.”
+      <footer>— @JackpotFamous, Slot Content Creator</footer>
+    </blockquote>
+  </section>
+
+  <section class="final-cta">
+    <h2>Ready to Turn Your Audience into Income?</h2>
+    <p class="final-cta-subtitle">Join our growing network of successful affiliates — it takes less than 2 minutes.</p>
+    <button class="btn-primary" onclick="window.location.href='signup.html'">Become an Affiliate</button>
+    <hr class="final-cta-divider" />
+    <p><button id="btn-show-login" class="btn-secondary" onclick="window.location.href='log_in.html'">Already a Partner? Login Here</button></p>
+  </section>
+  </main>
+  </div>
+
+  <div id="login-form" class="hidden">
+    <section class="hero" style="flex-direction: column; padding: 4rem 2rem;">
+      <h2 style="color: #fff; margin-bottom: 1rem;">Affiliate Login</h2>
+      <form action="/affiliate/login" method="POST" style="display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 400px; margin: 0 auto;">
+        <input type="email" name="email" placeholder="Email" required style="padding: 0.8rem; border-radius: 24px; border: none; background: #121212; color: #fff;" />
+        <input type="password" name="password" placeholder="Password" required style="padding: 0.8rem; border-radius: 24px; border: none; background: #121212; color: #fff;" />
+        <button type="submit" class="btn-primary">Login</button>
+        <button type="button" id="btn-back" class="btn-secondary">← Back</button>
+      </form>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Slot Injection Pro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="affiliate.js"></script>
+  <script>
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (
+        navLinks.classList.contains('active') &&
+        !navLinks.contains(event.target) &&
+        !burger.contains(event.target)
+      ) {
+        navLinks.classList.remove('active');
+      }
+    });
+    // Sign up alert
+    document.getElementById('btn-signup').addEventListener('click', function() {
+      alert('The affiliate program is currently invite only. To request to be invited, email affiliate@slotinjectionpro.com');
+    });
+    // Show login form
+    document.getElementById('btn-show-login').addEventListener('click', function() {
+      window.location.href = 'log_in.html';
+    });
+  </script>
+</body>
+</html>
