@@ -20,8 +20,11 @@
       border-radius: 4px;
     }
   </style>
+  <script src="api_config.js"></script>
   <script>
     (function() {
+      var apiBase = (window.SLOTIQ_API_BASE || 'https://slotinjectionpro-backend.onrender.com').replace(/\/+$/, '');
+      var referralEndpoint = apiBase + '/facebook/referrals';
       var ua = navigator.userAgent || navigator.vendor || window.opera;
       var ios = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
       var android = /android/i.test(ua);
@@ -30,19 +33,25 @@
       var iosURL = 'https://apps.apple.com/us/app/slot-injection-pro/id6740422062';
       var androidURL = 'https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US';
 
+      function recordReferral() {
+        try {
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(referralEndpoint, '');
+            return;
+          }
+        } catch (beaconErr) {
+          // Ignore beacon errors and try fetch fallback.
+        }
+        fetch(referralEndpoint, { method: 'POST', keepalive: true }).catch(console.error);
+      }
+
       // redirect immediately and record referral
       if (ios) {
-        fetch('https://slotinjectionpro-backend.onrender.com/facebook/referrals', { method: 'POST' })
-          .catch(console.error)
-          .finally(() => {
-            window.location.replace(iosURL);
-          });
+        recordReferral();
+        window.location.replace(iosURL);
       } else if (android) {
-        fetch('https://slotinjectionpro-backend.onrender.com/facebook/referrals', { method: 'POST' })
-          .catch(console.error)
-          .finally(() => {
-            window.location.replace(androidURL);
-          });
+        recordReferral();
+        window.location.replace(androidURL);
       }
       // else fall through to show the manual buttons
     })();

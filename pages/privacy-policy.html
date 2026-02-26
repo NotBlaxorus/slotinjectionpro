@@ -2,374 +2,191 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy - Slot Injection Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for Slot IQ." />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="Slot IQ — Privacy Policy" />
+  <meta property="og:description" content="Learn how Slot IQ collects, uses, and protects your information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../images/logo.png" />
+
+  <!-- Performance: Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <title>Slot IQ — Privacy Policy</title>
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="../images/logo.png" type="image/png" />
-  <!-- Link to the same style.css used for your main site -->
   <link rel="stylesheet" href="../style.css" />
-  <!-- Inline styles for burger menu -->
-  <style>
-    /* Burger Menu & Off-Canvas Nav */
-    .burger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    .burger .bar {
-      height: 3px;
-      width: 25px;
-      background-color: #ffffff;
-      margin: 4px 0;
-      transition: all 0.3s ease;
-    }
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100vh;
-      background-color: #1c1c1c;
-      padding: 2rem;
-      transition: right 0.3s ease-in-out;
-      list-style: none;
-      z-index: 1000;
-    }
-    .nav-links.active {
-      right: 0;
-    }
-    .nav-links li {
-      border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
-      padding: 0.75rem 0;
-    }
-    .nav-links li:last-child {
-      border-bottom: none;
-    }
-    /* Desktop view */
-    @media (min-width: 769px) {
-      .burger {
-        display: none;
-      }
-      .nav-links {
-        position: static;
-        right: auto;
-        height: auto;
-        width: auto;
-        flex-direction: row;
-        background: none;
-        padding: 0;
-        transition: none;
-        display: flex;
-      }
-      .nav-links li {
-        margin-left: 1rem;
-        border-bottom: none;
-        padding: 0;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- Navigation Bar (Sticky) -->
   <nav class="navbar">
-    <!-- Logo + Brand -->
-    <div class="nav-left">
-      <img src="../images/logo.png" alt="Slot Injection Pro Logo" class="app-logo" />
-      <span class="nav-brand">Slot Injection Pro</span>
+    <div class="navbar-inner">
+      <div class="nav-left">
+        <img src="../images/logo.png" alt="Slot IQ Logo" class="app-logo" />
+        <span class="nav-brand">Slot IQ</span>
+      </div>
+
+      <div class="burger" aria-label="Open menu" role="button" tabindex="0">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links" aria-label="Site navigation">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../affiliate.html">Affiliate Program</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy Information</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="privacy-policy.html" class="active">Privacy Policy</a></li>
+      </ul>
     </div>
-    <!-- Burger Menu Icon -->
-    <div class="burger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <!-- Nav Links -->
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="bugs-updates.html">Bugs &amp; Updates</a></li>
-      <li><a href="../affiliate.html">Affiliate Program</a></li>
-      <li><a href="support.html">Support</a></li>
-      <li><a href="privacy.html">Privacy Information</a></li>
-      <li><a href="terms-of-service.html">Terms of Service</a></li>
-      <li><a href="privacy-policy.html" class="active">Privacy Policy</a></li>
-    </ul>
   </nav>
 
-  <!-- Main Content Section -->
-  <main class="screenshots" style="padding-top: 2rem;">
-    <!-- Container for Privacy content -->
-    <div class="screenshots-grid" 
-         style="
-           max-width: 800px; 
-           margin: 0 auto; 
-           flex-direction: column;
-         "
-    >
-      <div style="text-align: justify;">
-        <!-- Page Title -->
-        <h1 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          Privacy Policy
-        </h1>
-        <p style="font-size: 1rem; margin-bottom: 1rem;">
-          <strong>Effective Date:</strong> 01/07/2025
-        </p>
+  <!-- HERO / PAGE HEADER -->
+  <header class="hero" style="padding-bottom: 2.5rem;">
+    <div class="hero-grid" style="grid-template-columns: 1fr; text-align: center;">
+      <div class="hero-content reveal">
+        <h1>Privacy Policy</h1>
+        <p class="hero-description">Effective Date: January 7, 2025</p>
+      </div>
+    </div>
+  </header>
 
-        <hr style="width: 100%; border: 1px solid grey; margin: 1rem 0;" />
+  <!-- INTRO -->
+  <section class="section">
+    <div class="section-title reveal" style="text-align: center;">
+      <h2>Overview</h2>
+      <p style="margin-left:auto; margin-right:auto; text-align:center;">This policy explains how Slot IQ collects, uses, and protects your information.</p>
+    </div>
 
+    <div class="grid-3" style="grid-template-columns: 1fr; max-width: 900px;">
+      <div class="card reveal">
         <p>
-          Slot Injection Pro (“App”), operated by Slot Injection LLC (“we,” “us,” or “our”),
-          is committed to protecting your privacy. This Privacy Policy explains how we collect,
-          use, and protect your personal information when you use the App. By accessing or using
-          the App, you agree to the terms outlined in this Privacy Policy.
+          <strong>Slot IQ</strong> ("App"), operated by <strong>Coastal Apex Ventures LLC</strong> ("we," "us," or "our"),
+          is committed to protecting your privacy. By using the App, you agree to the practices
+          described in this Privacy Policy.
         </p>
-        <br><p>
-          For users in the European Union (EU), this Privacy Policy complies with the General Data
-          Protection Regulation (GDPR). For users in California, this Privacy Policy complies with
-          the California Consumer Privacy Act (CCPA).
-        </p><br/>
+        <p style="margin-top: 1rem;">
+          This policy complies with applicable privacy laws including GDPR (EU) and CCPA (California).
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
+  <!-- POLICY SECTIONS -->
+  <section class="section">
+    <div class="grid-3" style="grid-template-columns: 1fr; max-width: 900px;">
+      <div class="card reveal">
+        <h3>1. Information We Collect</h3>
+        <p><strong>Account Information:</strong> Name, email address, and username.</p>
+        <p><strong>User Data:</strong> Session data, machine details, RTP values, and statistics.</p>
+        <p><strong>Usage Data:</strong> Feature usage, session duration, and interaction logs.</p>
+        <p><strong>Device Data:</strong> Device type, OS, and identifiers.</p>
+        <p><strong>Payments:</strong> All payments are processed by Apple, Google, or Stripe. We never store payment details.</p>
+      </div>
 
-        <!-- 1. Information We Collect -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          1. Information We Collect
-        </h2>
-        <p>
-            <br><strong>1.1. Account Information:</strong><br/>
-          We collect information you provide during registration, including your name, email
-          address, and username.
-        </p>
-        <p>
-            <br><strong>1.2. User-Generated Data:</strong><br/>
-          The App collects session data, such as slot machine details, Return to Player (RTP)
-          percentages, and session statistics. This data is linked to your account for
-          personalized insights but is anonymized and aggregated when included in the shared data pool.
-        </p>
-        <p>
-            <br><strong>1.3. Usage Data:</strong><br/>
-          We collect data about your interactions with the App, including session duration,
-          feature usage, and group activity.
-        </p>
-        <p>
-            <br><strong>1.4. Device Information:</strong><br/>
-          We collect non-personal information about the device you use to access the App, such
-          as device type, operating system, and unique device identifiers.
-        </p>
-        <p>
-            <br><strong>1.5. Payment Information:</strong><br/>
-          All payments for subscriptions are processed securely through the Apple App Store
-          or Google Play Store. We do not collect, store, or have access to your payment
-          information. Payments are governed by the respective privacy policies of these
-          platforms:
-        </p>
-        <ul style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li>
-            <a href="https://www.apple.com/legal/privacy/" target="_blank"
-               style="color: var(--primary-color); text-decoration: underline;">
-              Apple Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a href="https://policies.google.com/privacy" target="_blank"
-               style="color: var(--primary-color); text-decoration: underline;">
-              Google Privacy Policy
-            </a>
-          </li>
-        </ul>
+      <div class="card reveal">
+        <h3>2. How We Use Information</h3>
+        <p>Provide app functionality and personalized insights.</p>
+        <p>Generate anonymized, aggregated statistics.</p>
+        <p>Improve features, performance, and security.</p>
+        <p>Comply with legal obligations.</p>
+      </div>
 
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
+      <div class="card reveal">
+        <h3>3. Your Rights</h3>
+        <p><strong>GDPR:</strong> Access, correction, deletion, portability, restriction, objection.</p>
+        <p><strong>CCPA:</strong> Access, deletion, opt-out (we do not sell data), non-discrimination.</p>
+        <p>
+          To exercise your rights, contact:
+          <a href="mailto:support@slotiqapp.com" style="color: var(--primary-color); font-weight: 700;">support@slotiqapp.com</a>
+        </p>
+      </div>
 
-        <!-- 2. How We Use Your Information -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          2. How We Use Your Information
-        </h2>
-        <p>
-            <br><strong>2.1. To Provide Services:</strong><br/>
-          Your data is used to deliver App functionality, such as tracking gameplay sessions,
-          generating insights, and enabling group features.
-        </p>
-        <p>
-            <br><strong>2.2. Shared Data Pool:</strong><br/>
-          Anonymized session data may contribute to the shared data pool visible to other App
-          users. This data is aggregated and does not include any account identifiers, such as
-          your name, email, or user ID.
-        </p>
-        <p>
-            <br><strong>2.3. Personal Insights:</strong><br/>
-          Your data is used to create personalized reports and statistics for your account.
-        </p>
-        <p>
-            <br><strong>2.4. App Improvements:</strong><br/>
-          We use usage data to identify trends, improve features, and ensure App security and
-          performance.
-        </p>
-        <p>
-            <br><strong>2.5. Compliance and Legal Obligations:</strong><br/>
-          We may use your information to comply with legal or regulatory obligations.
-        </p>
+      <div class="card reveal">
+        <h3>4. Data Protection</h3>
+        <p>Administrative, technical, and physical safeguards are used.</p>
+        <p>Encryption protects sensitive information.</p>
+        <p>Access is limited to authorized personnel.</p>
+      </div>
 
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
+      <div class="card reveal">
+        <h3>5. Data Sharing</h3>
+        <p>Anonymized data may appear in shared insights.</p>
+        <p>Payment processors handle billing securely.</p>
+        <p>Data may be disclosed to comply with laws.</p>
+      </div>
 
-        <!-- 3. Your Rights (GDPR and CCPA) -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          3. Your Rights (GDPR and CCPA)
-        </h2>
-        <p>
-            <br><strong>3.1. Rights Under GDPR:</strong><br/>
-          If you are located in the EU, you have the following rights:
-        </p>
-        <ul style="list-style: disc; margin-left: 1.5rem;">
-          <li>Access: Request a copy of the personal data we hold about you.</li>
-          <li>Correction: Request corrections to inaccurate or incomplete data.</li>
-          <li>Deletion: Request the deletion of your personal data (“Right to Be Forgotten”).</li>
-          <li>Data Portability: Request a copy of your data in a structured, commonly used format.</li>
-          <li>Restriction: Request that we limit how your data is processed.</li>
-          <li>Objection: Object to the processing of your data in certain circumstances.</li>
-        </ul>
-        <p>
-            <br><strong>3.2. Rights Under CCPA:</strong><br/>
-          If you are a California resident, you have the following rights:
-        </p>
-        <ul style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li>Access: Request to know what personal data we collect, use, and share.</li>
-          <li>Deletion: Request the deletion of your personal data.</li>
-          <li>Opt-Out: Opt-out of the sale of personal data (we do not sell personal data).</li>
-          <li>
-            Non-Discrimination: You have the right not to be discriminated against for exercising
-            your CCPA rights.
-          </li>
-        </ul>
-        <p>
-          To exercise your GDPR or CCPA rights, please contact us at:
-          <a href="mailto:support@slotinjectionpro.com"
-             style="color: var(--primary-color); text-decoration: underline;">
-            support@slotinjectionpro.com
-          </a>.
-        </p>
+      <div class="card reveal">
+        <h3>6. Data Retention</h3>
+        <p>Personal data is kept while accounts are active.</p>
+        <p>Anonymized data may be retained indefinitely.</p>
+      </div>
 
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
+      <div class="card reveal">
+        <h3>7. Policy Updates</h3>
+        <p>We may update this policy at any time. Continued use indicates acceptance.</p>
+      </div>
 
-        <!-- 4. How We Protect Your Information -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          4. How We Protect Your Information
-        </h2>
+      <div class="card reveal">
+        <h3>8. Contact Information</h3>
         <p>
-            <br><strong>4.1. Data Security:</strong><br/>
-          We implement reasonable administrative, technical, and physical safeguards to protect
-          your data from unauthorized access, disclosure, or alteration.
-        </p>
-        <p>
-            <br><strong>4.2. Encryption:</strong><br/>
-          Sensitive information, such as login credentials, is encrypted during transmission
-          and storage.
-        </p>
-        <p>
-            <br><strong>4.3. Access Controls:</strong><br/>
-          Access to personal data is restricted to authorized personnel only.
-        </p>
-
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
-
-        <!-- 5. Sharing of Information -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          5. Sharing of Information
-        </h2>
-        <p>
-            <br><strong>5.1. Aggregated and Anonymized Data:</strong><br/>
-          Aggregated session data is shared in the App’s shared data pool. This data is
-          anonymized and does not identify individual users or accounts.
-        </p>
-        <p>
-            <br><strong>5.2. Third-Party Payment Processors:</strong><br/>
-          All payments for subscriptions are processed securely through the Apple App Store or
-          Google Play Store. These platforms handle your payment information in accordance with
-          their privacy policies.
-        </p>
-        <p>
-            <br><strong>5.3. Legal Requirements:</strong><br/>
-          We may disclose your data to comply with legal obligations or protect the rights and
-          safety of our users and others.
-        </p>
-
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
-
-        <!-- 6. Data Retention -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          6. Data Retention
-        </h2>
-        <p>
-            <br><strong>6.1. Personal Data:</strong><br/>
-          We retain personal data for as long as your account is active or as required to
-          provide services.
-        </p>
-        <p>
-            <br><strong>6.2. Anonymized Data:</strong><br/>
-          Aggregated and anonymized session data may be retained indefinitely for statistical
-          and analytical purposes.
-        </p>
-
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
-
-        <!-- 7. Changes to This Privacy Policy -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          7. Changes to This Privacy Policy
-        </h2>
-        <br><p>
-          We may update this Privacy Policy to reflect changes in our practices or for legal and
-          regulatory reasons. Any changes will be effective when posted. Continued use of the App
-          after updates constitutes your acceptance of the revised policy.
-        </p><br/>
-
-        <hr style="width: 100%; border: 1px solid grey; margin: 1.5rem 0;" />
-
-        <!-- 8. Contact Information -->
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: left;">
-          8. Contact Information
-        </h2>
-        <p>
-          For questions or concerns about this Privacy Policy or your data, please contact us at:
-          <br/><br/>
-          Email:
-          <a href="mailto:support@slotinjectionpro.com"
-             style="color: var(--primary-color); text-decoration: underline;">
-            support@slotinjectionpro.com
-          </a><br/>
-          Official Website:
-          <a href="https://slotinjectionpro.com"
-             style="color: var(--primary-color); text-decoration: underline;">
-            slotinjectionpro.com
+          Questions or concerns may be directed to:
+          <br />
+          <a href="mailto:support@slotiqapp.com" style="color: var(--primary-color); font-weight: 700;">
+            support@slotiqapp.com
           </a>
         </p>
       </div>
     </div>
-  </main>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© <span id="year"></span> Slot Injection LLC. All rights reserved.</p>
+    <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
   </footer>
 
-  <!-- Optional Script for updating the footer year and burger menu -->
   <script src="../script.js"></script>
   <script>
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
-    burger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (
-        navLinks.classList.contains('active') &&
-        !navLinks.contains(event.target) &&
-        !burger.contains(event.target)
-      ) {
+    const yearEl = document.getElementById('year');
+
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    function toggleMenu(){ navLinks.classList.toggle('active'); }
+
+    if (burger && navLinks) {
+      burger.addEventListener('click', toggleMenu);
+      burger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(event.target) && !burger.contains(event.target)) {
         navLinks.classList.remove('active');
       }
     });
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach((el) => io.observe(el));
   </script>
 </body>
 </html>

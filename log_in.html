@@ -3,166 +3,266 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Affiliate Login — Slot Injection Pro</title>
+  <meta name="description" content="Login to your Slot IQ affiliate dashboard." />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="Slot IQ — Affiliate Login" />
+  <meta property="og:description" content="Securely log in to your Slot IQ affiliate dashboard." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/logo.png" />
+
+  <!-- Performance: Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <title>Slot IQ — Affiliate Login</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/logo.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+
   <style>
-    .card {
-      background-color: #121212;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      max-width: 400px;
-      margin: 2rem auto;
-    }
-    .card input {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 8px;
-      background: #1c1c1c;
-      color: #fff;
+    /* Page-only polish (keeps your global system intact) */
+    .auth-wrap{max-width: 520px; margin: 0 auto; padding: 0 1.25rem;}
+    .auth-card{margin: 0 auto;}
+    .auth-card .muted{color: var(--muted);}
+    .auth-actions{display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top: 1rem;}
+    .input{
+      width:100%;
+      padding: .85rem .9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
       font-size: 1rem;
+      outline: none;
     }
-    .card button {
-      width: 100%;
-      background: linear-gradient(to right, #a600ff, #ff00c8);
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 1rem;
+    .input::placeholder{color: rgba(255,255,255,.55);}
+    .input:focus{border-color: rgba(47,230,200,.55); box-shadow: 0 0 0 4px rgba(47,230,200,.12);}
+
+    .btn-primary{
+      width:100%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      padding: .9rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(47,230,200,.9));
+      color: #071018;
+      font-weight: 900;
+      cursor:pointer;
     }
-    .card a.forgot {
-      display: block;
-      text-align: right;
-      font-size: 0.875rem;
-      color: #aaa;
-      text-decoration: none;
-      margin-top: 0.5rem;
-    }
-    .card a.forgot:hover {
-      text-decoration: underline;
-    }
-    h1.login-title {
-      text-align: center;
-      font-size: 2rem;
+    .btn-primary:hover{filter: brightness(1.04);}
+
+    .link-row{display:flex; justify-content:space-between; align-items:center; gap:.75rem; margin-top:.75rem;}
+    .link-row a{color: rgba(255,255,255,.70); text-decoration:none; font-weight:700; font-size:.95rem;}
+    .link-row a:hover{color: rgba(255,255,255,.92); text-decoration: underline;}
+
+    .error-msg{
+      margin: 0 0 .85rem;
+      color: #ff6b6b;
       font-weight: 700;
-      color: #fff;
-      margin-top: 2rem;
     }
-    p.login-subtitle {
-      text-align: center;
-      color: #aaa;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+
+    @media (max-width: 520px){
+      .link-row{flex-direction: column; align-items: flex-start;}
     }
   </style>
 </head>
 <body>
+  <!-- Navigation Bar (Sticky) -->
   <nav class="navbar">
-    <div class="nav-left">
-      <img src="images/logo.png" alt="Slot Injection Pro Logo" class="app-logo" />
-      <span class="nav-brand">Slot Injection Pro</span>
+    <div class="navbar-inner">
+      <!-- Logo + Brand -->
+      <div class="nav-left">
+        <img src="images/logo.png" alt="Slot IQ Logo" class="app-logo" />
+        <span class="nav-brand">Slot IQ</span>
+      </div>
+
+      <!-- Burger menu icon -->
+      <div class="burger" aria-label="Open menu" role="button" tabindex="0">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Nav Links (no Bugs & Updates) -->
+      <ul class="nav-links" aria-label="Site navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="affiliate.html">Affiliate Program</a></li>
+        <li><a href="pages/support.html">Support</a></li>
+        <li><a href="pages/privacy.html">Privacy Information</a></li>
+        <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+      </ul>
     </div>
-    <div class="burger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="pages/bugs-updates.html">Bugs &amp; Updates</a></li>
-      <li><a href="affiliate.html">Affiliate Program</a></li>
-      <li><a href="pages/support.html">Support</a></li>
-      <li><a href="pages/privacy.html">Privacy Information</a></li>
-      <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
-      <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
-    </ul>
   </nav>
-  <main class="affiliate-container">
-    <h1 class="login-title">Welcome Back, Affiliate 👋</h1>
-    <p class="login-subtitle">Secure login to your earnings dashboard</p>
-    <div class="card">
-      <form id="login-form">
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="password" placeholder="Password" required />
-        <button id="btn-login" type="button">Login</button>
-        <a href="#" class="forgot">Forgot password?</a>
-      </form>
+
+  <!-- HERO / PAGE HEADER -->
+  <header class="hero" style="padding-bottom: 2.5rem;">
+    <div class="hero-grid" style="grid-template-columns: 1fr; text-align: center;">
+      <div class="hero-content reveal">
+        <h1>Affiliate Login</h1>
+        <p class="hero-description">Secure login to your earnings dashboard.</p>
+      </div>
     </div>
-    <p style="text-align:center; color:#ccc; margin-top:1rem;">
-      <a href="affiliate.html" style="text-decoration:underline; color:#ccc;">← Back to Affiliate Page</a>
-    </p>
+  </header>
+
+  <!-- LOGIN -->
+  <main class="section" style="padding-top: 0;">
+    <div class="auth-wrap">
+      <div class="section-title reveal" style="text-align:center; margin-bottom: 1.25rem;">
+        <h2>Welcome back 👋</h2>
+        <p style="margin-left:auto; margin-right:auto; text-align:center;">Sign in with your affiliate account to view referrals, earnings, and payouts.</p>
+      </div>
+
+      <div class="card reveal auth-card">
+        <form id="login-form" autocomplete="on" novalidate>
+          <!-- error injected here -->
+          <input class="input" type="email" name="email" placeholder="Email" required />
+          <input class="input" type="password" name="password" placeholder="Password" required />
+          <button id="btn-login" class="btn-primary" type="button">Login</button>
+
+          <div class="link-row">
+            <a href="#" id="forgot-password" class="forgot">Forgot password?</a>
+            <a href="affiliate.html">← Back to Affiliate Page</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="auth-actions reveal">
+        <a class="cta-secondary" href="signup.html">Not an affiliate? Apply</a>
+        <a class="cta-secondary" href="affiliate_dashboard.html">Go to Dashboard</a>
+      </div>
+    </div>
   </main>
 
-  <!-- Scripts -->
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="api_config.js"></script>
   <script>
-    // Burger menu toggle only
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    burger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.addEventListener('click', (event) => {
-      if (
-        navLinks.classList.contains('active') &&
-        !navLinks.contains(event.target) &&
-        !burger.contains(event.target)
-      ) {
-        navLinks.classList.remove('active');
+    document.addEventListener('DOMContentLoaded', () => {
+      const API_BASE = window.SLOTIQ_API_BASE || 'https://slotinjectionpro-backend.onrender.com';
+      const apiUrl = (path) => `${API_BASE}${path}`;
+
+      // Year
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Burger menu toggle (matches index behavior)
+      const burger = document.querySelector('.burger');
+      const navLinks = document.querySelector('.nav-links');
+
+      function toggleMenu(){
+        if (navLinks) navLinks.classList.toggle('active');
+      }
+
+      if (burger && navLinks) {
+        burger.addEventListener('click', toggleMenu);
+        burger.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
+          }
+        });
+      }
+
+      document.addEventListener('click', (event) => {
+        if (
+          navLinks &&
+          navLinks.classList.contains('active') &&
+          !navLinks.contains(event.target) &&
+          burger &&
+          !burger.contains(event.target)
+        ) {
+          navLinks.classList.remove('active');
+        }
+      });
+
+      // Reveal-on-scroll animation
+      const revealEls = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('show');
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el) => io.observe(el));
+
+      // Affiliate login
+      async function loginAffiliate() {
+        const form = document.getElementById('login-form');
+        let errorP = form.querySelector('p.error-msg');
+        if (!errorP) {
+          errorP = document.createElement('p');
+          errorP.className = 'error-msg';
+          form.prepend(errorP);
+        }
+        errorP.textContent = '';
+
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const password = form.querySelector('input[name="password"]').value;
+
+        try {
+          const res = await fetch(apiUrl('/affiliate/login'), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+          });
+          let data = {};
+          try {
+            data = await res.json();
+          } catch (jsonError) {
+            data = {};
+          }
+          if (!res.ok) throw new Error(data.error || 'Login failed');
+
+          if (data.is_affiliate) {
+            localStorage.setItem('access_token', data.access_token);
+            localStorage.setItem('refresh_token', data.refresh_token);
+            window.location.href = 'affiliate_dashboard.html';
+          } else {
+            alert('You are not an affiliate yet. Become an affiliate today and earn generous commissions!');
+            window.location.href = 'affiliate.html';
+          }
+        } catch (err) {
+          console.error(err);
+          errorP.textContent = err.message;
+        }
+      }
+
+      const btnLogin = document.getElementById('btn-login');
+      if (btnLogin) {
+        btnLogin.addEventListener('click', loginAffiliate);
+      }
+
+      // Enter key submits
+      const form = document.getElementById('login-form');
+      if (form) {
+        form.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            loginAffiliate();
+          }
+        });
+      }
+
+      // Placeholder forgot password action (keeps current behavior but avoids dead UI)
+      const forgot = document.getElementById('forgot-password');
+      if (forgot) {
+        forgot.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Password reset is coming soon. For now, please contact support@slotiqapp.com for help.');
+        });
       }
     });
   </script>
-<script>
-  console.log('loginAffiliate script loaded');
-  async function loginAffiliate() {
-    console.log('loginAffiliate called');
-    const form = document.getElementById('login-form');
-    let errorP = form.querySelector('p.error-msg');
-    if (!errorP) {
-      errorP = document.createElement('p');
-      errorP.className = 'error-msg';
-      errorP.style.color = 'red';
-      errorP.style.marginBottom = '1rem';
-      form.prepend(errorP);
-    }
-    errorP.textContent = '';
-
-    const email = form.querySelector('input[name="email"]').value.trim();
-    const password = form.querySelector('input[name="password"]').value;
-
-    try {
-      const res = await fetch('https://slotinjectionpro-backend.onrender.com/affiliate/login', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({email, password})
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Login failed');
-
-      if (data.is_affiliate) {
-        console.log('Affiliate login successful, redirecting to dashboard');
-        localStorage.setItem('access_token', data.access_token);
-        localStorage.setItem('refresh_token', data.refresh_token);
-        window.location.href = 'affiliate_dashboard.html';
-      } else {
-        alert('You are not an affiliate yet. Become an affiliate today and earn generous commissions!');
-        window.location.href = 'affiliate.html';
-      }
-    } catch (err) {
-      console.error(err);
-      errorP.textContent = err.message;
-    }
-  }
-</script>
-<script>
-  const btnLogin = document.getElementById('btn-login');
-  if (btnLogin) {
-    btnLogin.addEventListener('click', loginAffiliate);
-  } else {
-    console.error('Login button not found');
-  }
-</script>
 </body>
 </html>

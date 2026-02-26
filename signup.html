@@ -18,7 +18,7 @@
     </section>
 
     <!-- Signup Form -->
-    <form id="signup-form" action="/affiliate/signup" method="POST" class="signup-form card" style="margin-top:2rem;">
+    <form id="signup-form" action="https://slotinjectionpro-backend.onrender.com/affiliate/signup" method="POST" class="signup-form card" style="margin-top:2rem;">
       
       <!-- Step 1: Basic Info -->
       <div class="form-section">
@@ -73,7 +73,11 @@
     </form>
   </main>
 
+  <script src="api_config.js"></script>
   <script>
+    const API_BASE = window.SLOTIQ_API_BASE || 'https://slotinjectionpro-backend.onrender.com';
+    const apiUrl = (path) => `${API_BASE}${path}`;
+
     // Handle platform toggles
     const toggles = document.querySelectorAll('.platform-toggle');
     const platformsInput = document.getElementById('platforms-input');
@@ -104,12 +108,17 @@
             recaptcha: token
           };
           try {
-            const res = await fetch('/affiliate/signup', {
+            const res = await fetch(apiUrl('/affiliate/signup'), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(formData)
             });
-            const result = await res.json();
+            let result = {};
+            try {
+              result = await res.json();
+            } catch (jsonError) {
+              result = {};
+            }
             if (res.ok) {
               signupForm.reset();
               toggles.forEach(btn => btn.classList.remove('active'));

@@ -3,41 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Affiliate Dashboard — Slot Injection Pro</title>
+  <meta name="description" content="Slot IQ affiliate dashboard." />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="Slot IQ — Affiliate Dashboard" />
+  <meta property="og:description" content="View your referral performance, earnings, and payouts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/logo.png" />
+
+  <!-- Performance: Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <title>Slot IQ — Affiliate Dashboard</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/logo.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (Sticky) -->
   <nav class="navbar">
-    <div class="nav-left">
-      <img src="images/logo.png" alt="Slot Injection Pro Logo" class="app-logo" />
-      <span class="nav-brand">Slot Injection Pro</span>
+    <div class="navbar-inner">
+      <!-- Logo + Brand -->
+      <div class="nav-left">
+        <img src="images/logo.png" alt="Slot IQ Logo" class="app-logo" />
+        <span class="nav-brand">Slot IQ</span>
+      </div>
+
+      <!-- Burger menu icon -->
+      <div class="burger" aria-label="Open menu" role="button" tabindex="0">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Nav Links (no Bugs & Updates) -->
+      <ul class="nav-links" aria-label="Site navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="affiliate.html">Affiliate Program</a></li>
+        <li><a href="affiliate_dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="pages/support.html">Support</a></li>
+        <li><a href="pages/privacy.html">Privacy Information</a></li>
+        <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+      </ul>
     </div>
-    <div class="burger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="pages/bugs-updates.html">Bugs &amp; Updates</a></li>
-      <li><a href="affiliate.html" class="active">Affiliate Program</a></li>
-      <li><a href="pages/support.html">Support</a></li>
-      <li><a href="pages/privacy.html">Privacy Policy</a></li>
-      <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
-    </ul>
   </nav>
 
-  <main class="affiliate-dashboard-container container">
+  <!-- HERO / PAGE HEADER -->
+  <header class="hero" style="padding-bottom: 2.5rem;">
+    <div class="hero-grid" style="grid-template-columns: 1fr; text-align: center;">
+      <div class="hero-content reveal">
+        <h1>Affiliate Dashboard</h1>
+        <p class="hero-description">Track referrals, earnings, and payout history — all in one place.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="cta-secondary" href="#earnings">Earnings</a>
+          <a class="cta-secondary" href="#referrals">Referrals</a>
+          <a class="cta-secondary" href="#payouts">Payouts</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENT -->
+  <main class="dashboard-container">
     <!-- Welcome Message -->
-    <section class="welcome-message card">
-      <h2>Welcome back, <span id="affiliate-name"></span>! Here’s how you’re doing today.</h2>
+    <section class="welcome-message card reveal">
+      <h2>Welcome back, <span id="affiliate-name-welcome"></span>! Here’s how you’re doing.</h2>
     </section>
+
     <div class="dashboard-cards">
-    <!-- Sticky Profile Overview -->
-    <section class="profile-overview sticky card">
-      <div class="card glass">
+      <!-- Profile / Payout Info -->
+      <section class="profile-overview card reveal" aria-label="Affiliate profile">
+        <h2 style="margin-bottom: 1rem;">Profile</h2>
+
         <div class="profile-grid">
           <div class="profile-item">
             <strong>🔗 Referral Code</strong>
@@ -64,14 +107,16 @@
             <span id="affiliate-country"></span>
           </div>
         </div>
-        <div class="profile-actions">
-          <button id="edit-profile">✍️ Edit Profile</button>
-          <span id="payout-info-icon" class="material-icons info-icon" title="Payout Info">info</span>
+
+        <div class="profile-actions" style="display:flex; gap:.75rem; justify-content:flex-end; align-items:center;">
+          <button id="edit-profile" class="cta-secondary" style="border-radius: 12px;">✍️ Edit Payout Info</button>
+          <span id="payout-info-icon" class="material-icons info-icon" title="Payout Info" aria-label="Payout info">info</span>
         </div>
+
         <!-- Edit Profile Modal -->
-        <div id="edit-profile-modal" class="modal hidden">
+        <div id="edit-profile-modal" class="modal hidden" aria-hidden="true">
           <div class="modal-content card">
-            <span id="close-modal" class="modal-close">&times;</span>
+            <span id="close-modal" class="modal-close" aria-label="Close">&times;</span>
             <h3>Edit Payout Information</h3>
             <form id="payout-info-form">
               <div class="form-group">
@@ -81,10 +126,12 @@
                 <input type="radio" id="method-wire" name="payout-method" value="wire">
                 <label for="method-wire">Wire Transfer</label>
               </div>
+
               <div id="paypal-fields" class="form-group hidden">
                 <label for="input-paypal-email">PayPal Email:</label>
                 <input type="email" id="input-paypal-email" name="paypalEmail" />
               </div>
+
               <div id="wire-fields" class="form-group hidden">
                 <label for="input-bank-name">Bank Name:</label>
                 <input type="text" id="input-bank-name" name="bankName" />
@@ -93,264 +140,469 @@
                 <label for="input-routing-number">Routing Number:</label>
                 <input type="text" id="input-routing-number" name="routingNumber" />
               </div>
+
               <div class="form-actions">
                 <button type="button" id="save-payout-info">Save</button>
               </div>
             </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Earnings Overview -->
-    <section class="earnings-overview card">
-      <h2>📈 Earnings Overview</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <small>Total Earned</small>
-          <strong id="stat-total-earned">$0.00</strong>
+      <!-- Earnings Overview -->
+      <section class="earnings-overview card reveal" id="earnings">
+        <h2>📈 Earnings Overview</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <small>Total Earned</small>
+            <strong id="stat-total-earned">$0.00</strong>
+          </div>
+          <div class="stat-card">
+            <small>Paid Out</small>
+            <strong id="stat-paid-out">$0.00</strong>
+          </div>
+          <div class="stat-card">
+            <small>Pending Payout</small>
+            <strong id="stat-pending">$0.00</strong>
+          </div>
+          <div class="stat-card">
+            <small>Total Referrals</small>
+            <strong id="stat-referrals">0</strong>
+          </div>
+          <div class="stat-card">
+            <small>Conversion Rate</small>
+            <strong id="stat-conversion">0%</strong>
+          </div>
         </div>
-        <div class="stat-card">
-          <small>Paid Out</small>
-          <strong id="stat-paid-out">$0.00</strong>
-        </div>
-        <div class="stat-card">
-          <small>Pending Payout</small>
-          <strong id="stat-pending">$0.00</strong>
-        </div>
-        <div class="stat-card">
-          <small>Total Referrals</small>
-          <strong id="stat-referrals">0</strong>
-        </div>
-        <div class="stat-card">
-          <small>Conversion Rate</small>
-          <strong id="stat-conversion">0%</strong>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Latest Referrals -->
-    <section class="latest-referrals card">
-      <h2>🧑‍🤝‍🧑 Latest Referrals</h2>
-      <div class="table-filters">
-        <label for="tx-filter">Filter:</label>
-        <select id="tx-filter">
-          <option value="all">All</option>
-          <option value="converted">Converted</option>
-          <option value="trial">Trial</option>
-        </select>
-      </div>
-      <div class="table-container">
-        <table id="transactions-list" class="responsive-table">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Sign Up Date</th>
-              <th>Status</th>
-              <th>Commission Earned</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Populated dynamically -->
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- Latest Referrals -->
+      <section class="latest-referrals card reveal" id="referrals">
+        <h2>🧑‍🤝‍🧑 Latest Referrals</h2>
+        <div class="table-filters">
+          <label for="tx-filter">Filter:</label>
+          <select id="tx-filter">
+            <option value="all">All</option>
+            <option value="converted">Converted</option>
+            <option value="trial">Trial</option>
+          </select>
+        </div>
+        <div class="table-container">
+          <table id="transactions-list" class="responsive-table">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Sign Up Date</th>
+                <th>Status</th>
+                <th>Commission Earned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <!-- Payout History -->
-    <section class="payout-history card">
-      <h2>💸 Payout History</h2>
-      <div class="table-container">
-        <table id="payouts-list" class="responsive-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Amount</th>
-              <th>Status</th>
-              <th>Transaction ID</th>
-              <th>Receipt</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Populated dynamically -->
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- Payout History -->
+      <section class="payout-history card reveal" id="payouts">
+        <h2>💸 Payout History</h2>
+        <div class="table-container">
+          <table id="payouts-list" class="responsive-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Transaction ID</th>
+                <th>Receipt</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <!-- Quick Actions -->
-    <section class="quick-actions card">
-      <button id="request-payout">💰 Request Payout</button>
-      <button id="copy-link">📤 Copy Referral Link</button>
-      <button id="earn-tips">🧠 Read Tips to Earn More</button>
-      <button id="report-issue">🛡️ Report an Issue</button>
-    </section>
+      <!-- Quick Actions -->
+      <section class="quick-actions card reveal" aria-label="Quick actions">
+        <button id="request-payout">💰 Request Payout</button>
+        <button id="copy-link">📤 Copy Referral Link</button>
+        <button id="earn-tips">🧠 Read Tips to Earn More</button>
+        <button id="report-issue">🛡️ Report an Issue</button>
+      </section>
     </div>
   </main>
 
-  <!-- Scripts -->
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="api_config.js"></script>
   <script>
-    // Modal toggle
-    const editBtn = document.getElementById('edit-profile');
-    const modal = document.getElementById('edit-profile-modal');
-    const closeBtn = document.getElementById('close-modal');
-    editBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    document.addEventListener('DOMContentLoaded', async () => {
+      const API_BASE = window.SLOTIQ_API_BASE || 'https://slotinjectionpro-backend.onrender.com';
+      const apiUrl = (path) => `${API_BASE}${path}`;
 
-    // Show/hide fields based on payout method
-    document.getElementById('method-paypal').addEventListener('change', () => {
-      document.getElementById('paypal-fields').classList.remove('hidden');
-      document.getElementById('wire-fields').classList.add('hidden');
-    });
-    document.getElementById('method-wire').addEventListener('change', () => {
-      document.getElementById('wire-fields').classList.remove('hidden');
-      document.getElementById('paypal-fields').classList.add('hidden');
-    });
+      const toNumber = (value) => {
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : 0;
+      };
 
-    // Save payout info
-    document.getElementById('save-payout-info').addEventListener('click', async () => {
-      const method = document.querySelector('input[name="payout-method"]:checked');
-      if (!method) {
-        alert('Please select a payout method.');
-        return;
-      }
-      const payload = {};
-      if (method.value === 'paypal') {
-        payload.paypalEmail = document.getElementById('input-paypal-email').value.trim();
-      } else {
-        payload.bankName = document.getElementById('input-bank-name').value.trim();
-        payload.accountNumber = document.getElementById('input-account-number').value.trim();
-        payload.routingNumber = document.getElementById('input-routing-number').value.trim();
-      }
-      try {
-        const token = localStorage.getItem('access_token');
-        const res = await fetch('https://slotinjectionpro-backend.onrender.com/affiliate/update-payout-info', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
-          },
-          body: JSON.stringify(payload)
-        });
-        const result = await res.json();
-        if (res.ok) {
-          alert('Payout information updated.');
-          modal.classList.add('hidden');
-          // Optionally refresh dashboard values
-          location.reload();
-        } else {
-          alert(result.error || 'Error updating payout info.');
+      const statusToken = (status) => (status || '').trim().toLowerCase();
+      const isTrialStatus = (status) => statusToken(status) === 'trial' || statusToken(status).includes('trial');
+      const isConvertedStatus = (status) => {
+        const value = statusToken(status);
+        return (
+          value === 'converted' ||
+          value === 'completed' ||
+          value === 'paid' ||
+          value.includes('completed') ||
+          value.includes('paid')
+        );
+      };
+      const formatDate = (value) => {
+        if (!value) return 'N/A';
+        const parsed = new Date(value);
+        return Number.isNaN(parsed.getTime()) ? 'N/A' : parsed.toLocaleDateString();
+      };
+
+      const safeJson = async (response) => {
+        try {
+          return await response.json();
+        } catch (jsonError) {
+          return {};
         }
-      } catch (err) {
-        console.error('Update error:', err);
-        alert('Network error.');
-      }
-    });
-  </script>
-  <script>
-    // Burger menu toggle
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    burger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.addEventListener('click', (event) => {
-      if (
-        navLinks.classList.contains('active') &&
-        !navLinks.contains(event.target) &&
-        !burger.contains(event.target)
-      ) {
-        navLinks.classList.remove('active');
-      }
-    });
+      };
 
-    // Payout info tooltip
-    const payoutInfoIcon = document.getElementById('payout-info-icon');
-    if (payoutInfoIcon) {
-      payoutInfoIcon.addEventListener('click', () => {
-        alert("You may setup both Wire Transfer and PayPal for payouts, but if you set up both, Wire Transfer will always be our first option.");
+      const clearAuthState = () => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+      };
+
+      const goToLogin = () => {
+        clearAuthState();
+        window.location.href = 'log_in.html';
+      };
+
+      async function refreshAccessToken() {
+        const refreshToken = localStorage.getItem('refresh_token');
+        if (!refreshToken) return null;
+
+        try {
+          const response = await fetch(apiUrl('/refresh'), {
+            method: 'POST',
+            headers: {
+              'Authorization': 'Bearer ' + refreshToken
+            }
+          });
+
+          if (!response.ok) return null;
+          const data = await safeJson(response);
+          if (!data.access_token) return null;
+          localStorage.setItem('access_token', data.access_token);
+          return data.access_token;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      async function fetchWithAuth(path, options = {}) {
+        const requestOptions = { ...options };
+        requestOptions.headers = { ...(options.headers || {}) };
+
+        let token = localStorage.getItem('access_token');
+        if (!token) return null;
+
+        requestOptions.headers.Authorization = 'Bearer ' + token;
+        let response = await fetch(apiUrl(path), requestOptions);
+
+        if (response.status !== 401) return response;
+
+        const refreshedToken = await refreshAccessToken();
+        if (!refreshedToken) return response;
+
+        requestOptions.headers.Authorization = 'Bearer ' + refreshedToken;
+        response = await fetch(apiUrl(path), requestOptions);
+        return response;
+      }
+
+      // Year
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Burger menu toggle (matches index behavior)
+      const burger = document.querySelector('.burger');
+      const navLinks = document.querySelector('.nav-links');
+
+      function toggleMenu() {
+        if (navLinks) navLinks.classList.toggle('active');
+      }
+
+      if (burger && navLinks) {
+        burger.addEventListener('click', toggleMenu);
+        burger.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
+          }
+        });
+      }
+
+      document.addEventListener('click', (event) => {
+        if (
+          navLinks &&
+          navLinks.classList.contains('active') &&
+          !navLinks.contains(event.target) &&
+          burger &&
+          !burger.contains(event.target)
+        ) {
+          navLinks.classList.remove('active');
+        }
       });
-    }
-  </script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('Affiliate dashboard script loaded');
-    const token = localStorage.getItem('access_token');
-    console.log('Retrieved token from localStorage:', token);
-    if (!token) {
-      window.location.href = 'log_in.html';
-      return;
-    }
-    fetch('https://slotinjectionpro-backend.onrender.com/affiliate/dashboard', {
-      headers: { 'Authorization': 'Bearer ' + token }
-    })
-      .then(res => {
-        if (!res.ok) throw new Error('Network response was not ok');
-        return res.json();
-      })
-      .then(data => {
-        const aff = data.affiliate;
-        document.getElementById('affiliate-code').textContent = aff.code;
-        document.getElementById('affiliate-name').textContent = aff.name;
-        document.getElementById('affiliate-commission').textContent = aff.commissionPct.toFixed(2) + '%';
+
+      // Reveal-on-scroll animation
+      const revealEls = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('show');
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el) => io.observe(el));
+
+      // Modal toggle
+      const editBtn = document.getElementById('edit-profile');
+      const modal = document.getElementById('edit-profile-modal');
+      const closeBtn = document.getElementById('close-modal');
+
+      if (editBtn && modal) {
+        editBtn.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+          modal.setAttribute('aria-hidden', 'false');
+        });
+      }
+      if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+          modal.classList.add('hidden');
+          modal.setAttribute('aria-hidden', 'true');
+        });
+      }
+
+      // Show/hide fields based on payout method
+      const paypalRadio = document.getElementById('method-paypal');
+      const wireRadio = document.getElementById('method-wire');
+      const paypalFields = document.getElementById('paypal-fields');
+      const wireFields = document.getElementById('wire-fields');
+
+      if (paypalRadio && paypalFields && wireFields) {
+        paypalRadio.addEventListener('change', () => {
+          paypalFields.classList.remove('hidden');
+          wireFields.classList.add('hidden');
+        });
+      }
+      if (wireRadio && paypalFields && wireFields) {
+        wireRadio.addEventListener('change', () => {
+          wireFields.classList.remove('hidden');
+          paypalFields.classList.add('hidden');
+        });
+      }
+
+      // Payout info tooltip
+      const payoutInfoIcon = document.getElementById('payout-info-icon');
+      if (payoutInfoIcon) {
+        payoutInfoIcon.addEventListener('click', () => {
+          alert('You may setup both Wire Transfer and PayPal for payouts, but if you set up both, Wire Transfer will always be our first option.');
+        });
+      }
+
+      // Save payout info
+      const saveBtn = document.getElementById('save-payout-info');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', async () => {
+          const method = document.querySelector('input[name="payout-method"]:checked');
+          if (!method) {
+            alert('Please select a payout method.');
+            return;
+          }
+
+          const payload = {};
+          if (method.value === 'paypal') {
+            payload.paypalEmail = (document.getElementById('input-paypal-email')?.value || '').trim();
+          } else {
+            payload.bankName = (document.getElementById('input-bank-name')?.value || '').trim();
+            payload.accountNumber = (document.getElementById('input-account-number')?.value || '').trim();
+            payload.routingNumber = (document.getElementById('input-routing-number')?.value || '').trim();
+          }
+
+          try {
+            const res = await fetchWithAuth('/affiliate/update-payout-info', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(payload)
+            });
+
+            if (!res || res.status === 401) {
+              goToLogin();
+              return;
+            }
+
+            const result = await safeJson(res);
+            if (res.ok) {
+              alert('Payout information updated.');
+              if (modal) {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+              }
+              location.reload();
+            } else {
+              alert(result.error || 'Error updating payout info.');
+            }
+          } catch (err) {
+            console.error('Update error:', err);
+            alert('Network error.');
+          }
+        });
+      }
+
+      // Load dashboard data
+      if (!localStorage.getItem('access_token')) {
+        const refreshed = await refreshAccessToken();
+        if (!refreshed) {
+          goToLogin();
+          return;
+        }
+      }
+
+      try {
+        const res = await fetchWithAuth('/affiliate/dashboard');
+        if (!res || res.status === 401 || res.status === 422) {
+          goToLogin();
+          return;
+        }
+        if (!res.ok) {
+          throw new Error('Failed to load dashboard');
+        }
+
+        const data = await safeJson(res);
+        const aff = data.affiliate || {};
+        const transactions = Array.isArray(data.transactions) ? data.transactions : [];
+        const payouts = Array.isArray(data.payouts) ? data.payouts : [];
+        const pendingPayoutCents = toNumber(data.pendingPayoutCents);
+
+        const nameWelcomeEl = document.getElementById('affiliate-name-welcome');
+        const nameEl = document.getElementById('affiliate-name');
+
+        if (nameWelcomeEl) nameWelcomeEl.textContent = aff.name || 'Affiliate';
+        if (nameEl) nameEl.textContent = aff.name || 'N/A';
+
+        document.getElementById('affiliate-code').textContent = aff.code || 'N/A';
+        document.getElementById('affiliate-commission').textContent = `${toNumber(aff.commissionPct).toFixed(2)}%`;
         document.getElementById('affiliate-paypal').textContent = aff.paypalEmail || 'N/A';
         document.getElementById('affiliate-bank').textContent = aff.bankName || 'Not Set';
         document.getElementById('affiliate-country').textContent = aff.country || 'Not Set';
 
         // Calculate overview metrics
-        const totalEarnedCents = data.transactions.reduce((sum, tx) => sum + tx.commission_cents, 0);
-        const paidOutCents = data.payouts.reduce((sum, po) => sum + po.amount_cents, 0);
-        const pendingPayoutCents = data.pendingPayoutCents;
-        document.getElementById('stat-total-earned').textContent = `$${(totalEarnedCents/100).toFixed(2)}`;
-        document.getElementById('stat-paid-out').textContent = `$${(paidOutCents/100).toFixed(2)}`;
-        document.getElementById('stat-pending').textContent = `$${(pendingPayoutCents/100).toFixed(2)}`;
-        const activeReferrals = data.transactions.length;
+        const totalEarnedCents = transactions.reduce((sum, tx) => sum + toNumber(tx.commission_cents), 0);
+        const paidOutCents = payouts.reduce((sum, po) => sum + toNumber(po.amount_cents), 0);
+
+        document.getElementById('stat-total-earned').textContent = `$${(totalEarnedCents / 100).toFixed(2)}`;
+        document.getElementById('stat-paid-out').textContent = `$${(paidOutCents / 100).toFixed(2)}`;
+        document.getElementById('stat-pending').textContent = `$${(pendingPayoutCents / 100).toFixed(2)}`;
+
+        const activeReferrals = transactions.length;
         document.getElementById('stat-referrals').textContent = activeReferrals;
-        const convertedCount = data.transactions.filter(tx => tx.status.toLowerCase().includes('paid')).length;
-        const conversionRate = activeReferrals > 0 ? (convertedCount/activeReferrals*100).toFixed(2) : '0.00';
+
+        const convertedCount = transactions.filter((tx) => isConvertedStatus(tx.status)).length;
+        const conversionRate = activeReferrals > 0 ? (convertedCount / activeReferrals * 100).toFixed(2) : '0.00';
         document.getElementById('stat-conversion').textContent = `${conversionRate}%`;
 
         // Populate transactions table
         const txBody = document.querySelector('#transactions-list tbody');
         txBody.innerHTML = '';
-        if (data.transactions.length) {
-          data.transactions.forEach(tx => {
-            const displayStatus = tx.status === 'Completed' ? 'Paid' : tx.status;
-            const commissionText = tx.status.toLowerCase().includes('trial')
+
+        const getStatusClass = (status) => {
+          if (isConvertedStatus(status)) return 'status-converted';
+          if (isTrialStatus(status)) return 'status-trial';
+          return '';
+        };
+
+        const applyFilter = () => {
+          const filter = document.getElementById('tx-filter')?.value || 'all';
+          const rows = txBody.querySelectorAll('tr[data-status]');
+          rows.forEach((row) => {
+            const rowStatus = row.getAttribute('data-status');
+            row.style.display = (filter === 'all' || rowStatus === filter) ? '' : 'none';
+          });
+        };
+
+        if (transactions.length) {
+          transactions.forEach((tx) => {
+            const rawStatus = tx.status || '';
+            const statusKey = isTrialStatus(rawStatus)
+              ? 'trial'
+              : isConvertedStatus(rawStatus)
+                ? 'converted'
+                : 'other';
+
+            const displayStatus = statusToken(rawStatus) === 'completed'
+              ? 'Paid'
+              : (rawStatus || 'Unknown');
+
+            const commissionText = isTrialStatus(rawStatus)
               ? 'Commission Pending'
-              : `$${(tx.commission_cents/100).toFixed(2)}`;
-            const row = `<tr>
-              <td>${tx.buyer_username}</td>
-              <td>${new Date(tx.purchase_date).toLocaleDateString()}</td>
-              <td>${displayStatus}</td>
+              : `$${(toNumber(tx.commission_cents) / 100).toFixed(2)}`;
+
+            const row = document.createElement('tr');
+            row.setAttribute('data-status', statusKey);
+            row.innerHTML = `
+              <td>${tx.buyer_username || 'N/A'}</td>
+              <td>${formatDate(tx.purchase_date)}</td>
+              <td class="${getStatusClass(rawStatus)}">${displayStatus}</td>
               <td>${commissionText}</td>
-            </tr>`;
-            txBody.insertAdjacentHTML('beforeend', row);
+            `;
+            txBody.appendChild(row);
           });
         } else {
           txBody.innerHTML = '<tr><td colspan="4">No referrals yet.</td></tr>';
         }
 
+        // Hook up filter
+        const txFilter = document.getElementById('tx-filter');
+        if (txFilter) {
+          txFilter.addEventListener('change', applyFilter);
+          applyFilter();
+        }
+
         // Populate payouts table
         const poBody = document.querySelector('#payouts-list tbody');
         poBody.innerHTML = '';
-        if (data.payouts.length) {
-          data.payouts.forEach(po => {
-            const row = `<tr>
-              <td>${new Date(po.paid_at).toLocaleDateString()}</td>
-              <td>$${(po.amount_cents/100).toFixed(2)}</td>
-              <td>${po.payout_method}</td>
-              <td>${po.id}</td>
-              <td><button data-payout-id="${po.id}" class="download-receipt">Download</button></td>
-            </tr>`;
-            poBody.insertAdjacentHTML('beforeend', row);
+
+        if (payouts.length) {
+          payouts.forEach((po) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${formatDate(po.paid_at)}</td>
+              <td>$${(toNumber(po.amount_cents) / 100).toFixed(2)}</td>
+              <td>${po.payout_method || 'N/A'}</td>
+              <td>${po.id || 'N/A'}</td>
+              <td><button data-payout-id="${po.id || ''}" class="download-receipt">Download</button></td>
+            `;
+            poBody.appendChild(row);
           });
         } else {
           poBody.innerHTML = '<tr><td colspan="5">No payouts yet.</td></tr>';
         }
-      })
-      .catch(err => {
+      } catch (err) {
         console.error('Error loading dashboard:', err);
-      });
-  });
-</script>
+        alert('Unable to load your dashboard right now. Please log in again.');
+        goToLogin();
+      }
+    });
+  </script>
 </body>
 </html>
