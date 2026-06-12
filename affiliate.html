@@ -3,384 +3,324 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Join the Slot IQ affiliate program to earn commissions by sharing Slot IQ. Get a unique referral code, tracking, and monthly payouts." />
-  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="description" content="Join the SlotIQ Creator Program: earn commissions sharing SlotIQ with your audience. Unique referral code, in-app earnings dashboard, monthly payouts." />
+  <meta name="theme-color" content="#0c0c10" />
 
   <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Slot IQ — Affiliate Program" />
-  <meta property="og:description" content="Earn commissions by sharing Slot IQ. Get a unique referral code, tracking, and monthly payouts." />
+  <meta property="og:title" content="SlotIQ — Creator Program" />
+  <meta property="og:description" content="Earn commissions sharing SlotIQ. Unique referral code, in-app earnings dashboard, monthly payouts." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:image" content="images/shot-1.jpg" />
 
-  <!-- Performance: Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <title>Slot IQ — Affiliate Program</title>
-
-  <!-- Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>SlotIQ — Creator Program</title>
   <link rel="shortcut icon" href="images/logo.png" type="image/png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <!-- Navigation Bar (Sticky) -->
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <!-- Logo + Brand -->
-      <div class="nav-left">
-        <img src="images/logo.png" alt="Slot IQ Logo" class="app-logo" />
-        <span class="nav-brand">Slot IQ</span>
-      </div>
 
-      <!-- Burger menu icon -->
-      <div class="burger" aria-label="Open menu" role="button" tabindex="0">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+  <!-- ambient background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
 
-      <!-- Nav Links -->
-      <ul class="nav-links" aria-label="Site navigation">
+  <!-- ============================== NAV ============================== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="SlotIQ logo" />
+        <span class="brand-word">SLOT<em>IQ</em></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="affiliate.html">Affiliate Program</a></li>
+        <li><a href="#earnings">Earnings</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="pages/support.html">Support</a></li>
-        <li><a href="pages/privacy.html">Privacy Information</a></li>
-        <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
-        <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
       </ul>
+
+      <a href="signup.html" class="btn btn-primary nav-cta">Apply Now</a>
+
+      <button class="burger" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- HERO SECTION (Modern) -->
-  <header class="hero" id="top">
-    <div class="hero-grid">
-      <div class="hero-content reveal">
-        <h1>Slot IQ Creator Program</h1>
-        <p class="hero-description">
-          Earn commissions by sharing Slot IQ with your audience — get a unique referral code, performance tracking, and priority support.
+  <!-- ============================== HERO ============================== -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow-pill">✦&nbsp; SlotIQ Creator Program</span>
+        <h1>Get paid to share<br /><span class="grad">SlotIQ.</span></h1>
+        <p class="lede">
+          Earn a commission on every subscriber who joins with your code. You get a
+          unique referral code, real-time tracking, and an earnings dashboard built
+          right into the SlotIQ app — no spreadsheets, no chasing invoices.
         </p>
 
-        <div class="cta-row">
-          <a class="cta-button" href="signup.html">Apply to Join</a>
-          <a class="cta-secondary" href="log_in.html">Login to Dashboard</a>
-          <a class="cta-secondary" href="#how-it-works">How it works</a>
+        <div class="store-row">
+          <a href="signup.html" class="btn btn-primary">Apply to Join</a>
         </div>
 
-        <div class="hero-badges" aria-label="Highlights">
-          <span class="pill">Up to 50% commission</span>
-          <span class="pill">First month payout</span>
-          <span class="pill">Real-time tracking</span>
-          <span class="pill">Monthly payouts</span>
-          <span class="pill">Creator-friendly</span>
+        <div class="hero-trust">
+          <span>Up to 50% commission</span>
+          <span class="dot">·</span>
+          <span>Monthly payouts</span>
+          <span class="dot">·</span>
+          <span>In-app dashboard</span>
         </div>
-
-        <p style="margin:.9rem 0 0; color: rgba(255,255,255,.62); font-size: .98rem; line-height: 1.55;">
-          <b style="color: rgba(255,255,255,.82);">Commission note:</b> commissions are earned on the subscriber’s <b>first month only</b>.
-        </p>
       </div>
 
-      <div class="hero-card reveal" aria-label="Affiliate program preview">
-        <div class="hero-card-inner">
-          <img src="images/hero-mockup.png" alt="Affiliate earnings mockup" class="hero-shot" loading="lazy" />
-          <div class="mini-stats" aria-label="Quick benefits">
-            <div class="stat"><b>Code</b><span>unique referral link</span></div>
-            <div class="stat"><b>Track</b><span>clicks &amp; conversions</span></div>
-            <div class="stat"><b>Paid</b><span>monthly payouts</span></div>
-          </div>
-        </div>
+      <div class="hero-shot reveal">
+        <div class="phone-glow"></div>
+        <img src="images/shot-2.jpg" alt="SlotIQ app session tracking" />
       </div>
     </div>
   </header>
 
-  <!-- EARNINGS EXAMPLES -->
-  <section class="section" id="earnings">
-    <div class="section-title reveal">
-      <h2>What you can earn</h2>
-      <p>Clear, simple examples based on Slot IQ’s monthly plans. (Commission applies to the subscriber’s <b>first month only</b>.)</p>
+  <!-- ============================ STAT STRIP ============================ -->
+  <section class="strip">
+    <div class="container strip-grid">
+      <div class="strip-item reveal"><b>Your Code</b><span>fans type it at checkout</span></div>
+      <div class="strip-item reveal"><b>They Save</b><span>extended free trial for your audience</span></div>
+      <div class="strip-item reveal"><b>You Track</b><span>live earnings in the app</span></div>
+      <div class="strip-item reveal"><b>You Get Paid</b><span>monthly, PayPal or bank</span></div>
     </div>
+  </section>
 
-    <div class="grid-3">
-      <div class="card reveal">
-        <h3>$10/mo plan</h3>
-        <p style="margin:.35rem 0 0; color: rgba(255,255,255,.8);">
-          <b>25%</b> = $2.50 &nbsp;•&nbsp; <b>35%</b> = $3.50 &nbsp;•&nbsp; <b>50%</b> = $5.00
-        </p>
-        <p style="margin:.65rem 0 0; color: rgba(255,255,255,.65); line-height: 1.6;">
-          Per referred subscriber on the <b>$10</b> plan (first month only).
-        </p>
+  <!-- ============================ EARNINGS ============================ -->
+  <section class="plans" id="earnings">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>What you <span class="grad">can earn.</span></h2>
+        <p>You earn a one-time commission on each new subscriber's first payment —
+           monthly or annual plan. Higher tiers unlock with consistent conversions.</p>
       </div>
-
-      <div class="card reveal">
-        <h3>$20/mo plan</h3>
-        <p style="margin:.35rem 0 0; color: rgba(255,255,255,.8);">
-          <b>25%</b> = $5.00 &nbsp;•&nbsp; <b>35%</b> = $7.00 &nbsp;•&nbsp; <b>50%</b> = $10.00
-        </p>
-        <p style="margin:.65rem 0 0; color: rgba(255,255,255,.65); line-height: 1.6;">
-          Per referred subscriber on the <b>$20</b> plan (first month only).
-        </p>
+      <div class="plan-grid" style="max-width: 1000px; grid-template-columns: repeat(3, 1fr);">
+        <div class="plan-card reveal">
+          <h3>Starter</h3>
+          <div class="plan-price">25%<span> commission</span></div>
+          <ul class="checks">
+            <li>$3.25 per monthly subscriber</li>
+            <li>$22.50 per annual subscriber</li>
+            <li>Everyone starts here — no minimum audience</li>
+          </ul>
+        </div>
+        <div class="plan-card featured reveal">
+          <div class="plan-flag">MOST PARTNERS</div>
+          <h3>Partner</h3>
+          <div class="plan-price">35%<span> commission</span></div>
+          <ul class="checks">
+            <li>$4.55 per monthly subscriber</li>
+            <li>$31.50 per annual subscriber</li>
+            <li>Unlocks with consistent monthly conversions</li>
+          </ul>
+        </div>
+        <div class="plan-card reveal">
+          <h3>Creator</h3>
+          <div class="plan-price">50%<span> commission</span></div>
+          <ul class="checks">
+            <li>$6.50 per monthly subscriber</li>
+            <li>$45.00 per annual subscriber</li>
+            <li>For top-performing partners</li>
+          </ul>
+        </div>
       </div>
+      <p class="reveal" style="text-align:center; margin-top:22px; color: var(--text-faint); font-size: 13px;">
+        Quick math: 20 annual subscribers at the Partner tier = <b style="color: var(--text-lo);">$630</b>.
+        Commission is earned on the subscriber's first payment only. Actual results vary.
+      </p>
+    </div>
+  </section>
 
-      <div class="card reveal">
-        <h3>Quick scenario</h3>
-        <p style="margin:.35rem 0 0; color: rgba(255,255,255,.65); line-height: 1.7;">
-          <b>20 subscribers</b> on $10/mo at <b>35%</b> = <b>$70</b> (first month commissions)<br />
-          <b>20 subscribers</b> on $20/mo at <b>35%</b> = <b>$140</b> (first month commissions)
+  <!-- ============================ IN-APP DASHBOARD ============================ -->
+  <section class="features">
+    <div class="container feature-grid">
+      <div class="feature-copy reveal">
+        <span class="eyebrow cyan">YOUR EARNINGS DASHBOARD — IN THE APP</span>
+        <h2>Track everything <span class="grad">in SlotIQ.</span></h2>
+        <p>
+          Once you're approved, your full affiliate dashboard lives inside the SlotIQ
+          app — open the menu and tap <b style="color: var(--text-lo);">Affiliate
+          Dashboard</b>. No separate website login.
         </p>
-        <p style="margin:.65rem 0 0; color: rgba(255,255,255,.55); font-size: .95rem; line-height: 1.6;">
-          Actual results vary based on audience and promotion style.
-        </p>
+        <ul class="checks">
+          <li>Your code with one-tap copy and share</li>
+          <li>Pending, paid, and lifetime earnings — live</li>
+          <li>Every referral with trial and conversion status</li>
+          <li>Monthly earnings history and payout records</li>
+          <li>Set your PayPal or bank payout details securely</li>
+        </ul>
+        <div class="store-row" style="margin-top: 26px;">
+          <a class="store-btn" href="https://apps.apple.com/us/app/slot-injection-pro/id6740422062" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.81C3.23 2.21 3 2.83 3 3.63v16.74c0 .8.23 1.42.61 1.82l.1.09 9.38-9.38v-.21L3.71 1.71l-.1.1zm13.79 6.84-3.13 3.13v.21l3.13 3.14 3.62-2.06c1.04-.59 1.04-1.55 0-2.14l-3.62-2.06v-.22zM4.05 22.6c.34.36.9.4 1.53.05l11.1-6.31-3.42-3.41-9.21 9.67zm0-21.2 9.21 9.66 3.42-3.4L5.58 1.34c-.63-.36-1.19-.31-1.53.06z"/></svg>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+      <div class="feature-shot reveal">
+        <img src="images/shot-1.jpg" alt="SlotIQ app dashboard" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- WHY JOIN -->
-  <section class="section" id="why-join">
-    <div class="section-title reveal">
-      <h2>Why join?</h2>
-      <p>Everything you need to promote confidently and get paid for your referrals.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card reveal">
-        <h3>High commissions</h3>
-        <p>Earn up to <b>50%</b> commission on the <b>first month</b> for every paying user you refer.</p>
+  <!-- ============================ HOW IT WORKS ============================ -->
+  <section class="plans" id="how" style="padding-top: 70px;">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>How it <span class="grad">works.</span></h2>
+        <p>Four steps from application to payout.</p>
       </div>
-      <div class="card reveal">
-        <h3>Custom referral code</h3>
-        <p>Get a personalized code and dashboard to monitor performance.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Real-time analytics</h3>
-        <p>See exactly how your referrals are performing, anytime.</p>
-      </div>
-    </div>
-
-    <div class="grid-3" style="margin-top: 1rem;">
-      <div class="card reveal">
-        <h3>Priority support</h3>
-        <p>Get fast help and resources tailored to your goals.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Trusted payouts</h3>
-        <p>Monthly payouts with clear, transparent reporting inside your dashboard.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Creator-friendly</h3>
-        <p>Works great for YouTube, TikTok, Discord, email lists, and private groups.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section" id="how-it-works">
-    <div class="section-title reveal">
-      <h2>How it works</h2>
-      <p>Apply, share your code, and earn commissions when subscribers join through you.</p>
-    </div>
-
-    <div class="how">
-      <div class="step reveal">
-        <div class="num">1</div>
-        <h4>Apply &amp; get approved</h4>
-        <p>Submit your info and receive your unique referral code (typically within <b>24–48 hours</b>).</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">2</div>
-        <h4>Share with your audience</h4>
-        <p>Promote on social, video, email, or in private groups — keep it authentic and helpful.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">3</div>
-        <h4>Earn first-month commission</h4>
-        <p>Get paid a percentage of the subscriber’s <b>first month</b> when they sign up using your code.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">4</div>
-        <h4>Improve over time</h4>
-        <p>Use dashboard analytics to see what’s working and increase conversions.</p>
-      </div>
-    </div>
-
-    <!-- AFFILIATE KIT -->
-    <div class="section-title reveal" style="margin-top: 1.75rem;">
-      <h2>Partner kit included</h2>
-      <p>Plug-and-play resources to help you promote without extra work.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card reveal">
-        <h3>Promotion copy</h3>
-        <p>Short scripts, pinned comment copy, and description templates you can paste in seconds.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Media assets</h3>
-        <p>App screenshots, mockups, and shareable graphics designed for social and video.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Tracking dashboard</h3>
-        <p>See clicks, signups, and approved conversions — with clear reporting.</p>
-      </div>
-    </div>
-
-    <div class="section-title reveal" style="margin-top: 1.75rem;">
-      <h2>Commission tiers</h2>
-      <p>Start earning immediately — higher tiers unlock with consistent conversions. (First-month commission only.)</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card reveal">
-        <h3>Starter</h3>
-        <p><b>25%</b> commission on the subscriber’s <b>first month</b> for each active subscription you refer.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Partner</h3>
-        <p><b>35%</b> commission on the subscriber’s <b>first month</b> after consistent monthly conversions.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Creator</h3>
-        <p><b>50%</b> commission on the subscriber’s <b>first month</b> for top-performing partners.</p>
-      </div>
-    </div>
-
-    <div class="section-title reveal" style="margin-top: 1.75rem;">
-      <h2>FAQ</h2>
-      <p>Quick answers to common questions.</p>
-    </div>
-
-    <div class="how">
-      <div class="step reveal">
-        <div class="num">?</div>
-        <h4>How do commissions work?</h4>
-        <p>You earn a percentage of the subscriber’s <b>first month</b> when they sign up using your referral code.</p>
-      </div>
-
-      <div class="step reveal">
-        <div class="num">?</div>
-        <h4>How do payouts work?</h4>
-        <p>Payouts are issued monthly with full reporting in your dashboard.</p>
-      </div>
-
-      <div class="step reveal">
-        <div class="num">?</div>
-        <h4>Where do I find my link?</h4>
-        <p>After approval, your dashboard provides a unique link and code to share.</p>
-      </div>
-
-      <div class="step reveal">
-        <div class="num">?</div>
-        <h4>Is there a minimum audience size?</h4>
-        <p>No — if you can share responsibly and add value for your audience, you can apply.</p>
-      </div>
-
-      <div class="step reveal">
-        <div class="num">?</div>
-        <h4>Can I promote anywhere?</h4>
-        <p>Yes — social, email, private groups, and communities. Please avoid spam and use honest, helpful messaging.</p>
-      </div>
-
-      <div class="step reveal">
-        <div class="num">?</div>
-        <h4>Can I offer my audience a perk?</h4>
-        <p>Yes — you can share your code as a simple way for viewers to support your channel while trying Slot IQ.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <section class="section" id="testimonial">
-    <div class="section-title reveal">
-      <h2>What partners say</h2>
-      <p>Real results from creators sharing Slot IQ.</p>
-    </div>
-
-    <div class="grid-3" style="grid-template-columns: 1fr;">
-      <div class="card reveal" style="display:flex; gap: 1rem; align-items:flex-start;">
-        <img src="images/avatar-jackpotfamous.jpg" alt="@JackpotFamous avatar" style="width:64px; height:64px; border-radius: 18px; border: 1px solid rgba(255,255,255,.12); object-fit: cover;" loading="lazy" />
-        <div>
-          <p style="margin:0; color: rgba(255,255,255,.88); font-size: 1.05rem; line-height: 1.6;">
-            “Setup was quick, and my audience loved having a simple way to track sessions and bankroll. The dashboard made it easy to see what worked.”
-          </p>
-          <p style="margin:.6rem 0 0; color: rgba(255,255,255,.65); font-weight: 700;">
-            — @JackpotFamous, Slot Content Creator
-          </p>
+      <div class="review-grid">
+        <div class="review-card reveal">
+          <div class="stars" style="color: var(--cyan);">1</div>
+          <p><b style="color: var(--text-hi);">Apply and get approved.</b><br />
+          Submit your info and receive your unique referral code, typically within 24–48 hours.</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars" style="color: var(--cyan);">2</div>
+          <p><b style="color: var(--text-hi);">Share with your audience.</b><br />
+          Social, video, email, private groups — your fans enter your code at checkout and get an extended free trial.</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars" style="color: var(--cyan);">3</div>
+          <p><b style="color: var(--text-hi);">Watch it track, live.</b><br />
+          Every signup appears in your in-app dashboard with its trial and conversion status. Codes are not case-sensitive.</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars" style="color: var(--cyan);">4</div>
+          <p><b style="color: var(--text-hi);">Get paid monthly.</b><br />
+          When trials convert to paid subscriptions, your commission is locked in and paid out monthly via PayPal or bank transfer.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA (matches landing download card style) -->
-  <section class="download-section" id="final-cta" style="padding-top: 0;">
-    <div class="download-wrap reveal">
-      <div class="download-inner">
-        <h2>Ready to earn from your audience?</h2>
-        <p>Join in under 2 minutes and start sharing your referral code.</p>
-
-        <div class="cta-row" style="justify-content:center; margin-top: 1.15rem;">
-          <a class="cta-button" href="signup.html">Apply to Join</a>
-          <a class="cta-secondary" href="log_in.html">Already a Partner? Login</a>
+  <!-- ============================ FAQ ============================ -->
+  <section class="reviews" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Questions, <span class="grad">answered.</span></h2>
+      </div>
+      <div class="review-grid">
+        <div class="review-card reveal">
+          <p><b style="color: var(--text-hi);">How do commissions work?</b><br />
+          You earn a percentage of each new subscriber's first payment (monthly or annual plan) when they sign up using your code. One commission per subscriber.</p>
         </div>
-
-        <p style="margin-top: 1rem; color: rgba(255,255,255,.55); font-size: .95rem;">
-          By applying you agree to our affiliate terms and acceptable promotion guidelines.
-          <span style="display:block; margin-top:.25rem;">
-            <b>Reminder:</b> commission is earned on the subscriber’s <b>first month only</b>.
-          </span>
-        </p>
+        <div class="review-card reveal">
+          <p><b style="color: var(--text-hi);">Where is my dashboard?</b><br />
+          Inside the SlotIQ app: open the menu and tap Affiliate Dashboard. It shows earnings, referrals, payout history, and your payment settings.</p>
+        </div>
+        <div class="review-card reveal">
+          <p><b style="color: var(--text-hi);">How do payouts work?</b><br />
+          Monthly, via PayPal or bank transfer — set your details in the app. Every payout is recorded in your dashboard.</p>
+        </div>
+        <div class="review-card reveal">
+          <p><b style="color: var(--text-hi);">Is there a minimum audience size?</b><br />
+          No. If you can share responsibly and add value for your audience, you can apply.</p>
+        </div>
+        <div class="review-card reveal">
+          <p><b style="color: var(--text-hi);">What does my audience get?</b><br />
+          An extended free trial of SlotIQ Premium when they use your code — a real perk, not just a tracking link.</p>
+        </div>
+        <div class="review-card reveal">
+          <p><b style="color: var(--text-hi);">Can I promote anywhere?</b><br />
+          Yes — social, video, email, private groups, and communities. Please keep it honest and avoid spam.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ============================ TESTIMONIAL ============================ -->
+  <section class="reviews" style="padding-top: 0;">
+    <div class="container">
+      <div class="review-grid" style="grid-template-columns: 1fr; max-width: 760px; margin: 0 auto;">
+        <div class="review-card reveal" style="display: flex; gap: 16px; align-items: flex-start;">
+          <img src="images/avatar-jackpotfamous.jpg" alt="@JackpotFamous avatar"
+               style="width: 60px; height: 60px; border-radius: 16px; border: 1px solid var(--stroke); object-fit: cover;" loading="lazy" />
+          <div>
+            <p style="color: var(--text-lo); font-size: 15px;">
+              "Setup was quick, and my audience loved having a simple way to track
+              sessions and bankroll. The dashboard made it easy to see what worked."
+            </p>
+            <p style="margin-top: 10px; color: var(--text-hi); font-weight: 700; font-size: 14px;">
+              — @JackpotFamous, Slot Content Creator</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FINAL CTA ============================ -->
+  <section class="download" id="apply">
+    <div class="container">
+      <div class="download-card reveal">
+        <h2>Ready to earn from <span class="grad">your audience?</span></h2>
+        <p>Apply in under 2 minutes. Once you're approved, everything else lives in the app.</p>
+        <div class="store-row center">
+          <a href="signup.html" class="btn btn-primary" style="padding: 14px 38px; font-size: 16px;">Apply to Join</a>
+        </div>
+        <p class="fine">By applying you agree to our affiliate terms and acceptable promotion guidelines.<br />
+        Commission is earned on each subscriber's first payment only.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
   <footer class="footer">
-    <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-word">SLOT<em>IQ</em></span>
+        <p>Player intelligence through statistics.</p>
+      </div>
+      <div class="footer-col">
+        <h5>App</h5>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#download">Download</a>
+        <a href="signup.html">Apply as Affiliate</a>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <a href="pages/support.html">Support</a>
+        <a href="pages/bugs-updates.html">Bugs &amp; Updates</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="pages/terms-of-service.html">Terms of Service</a>
+        <a href="pages/privacy-policy.html">Privacy Policy</a>
+        <a href="pages/privacy.html">Privacy Information</a>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
   <script>
-    // Burger menu toggle functionality
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    const yearEl = document.getElementById('year');
-
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    function toggleMenu(){
-      navLinks.classList.toggle('active');
-    }
-
-    if (burger && navLinks) {
-      burger.addEventListener('click', toggleMenu);
-      burger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleMenu();
-        }
-      });
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (
-        navLinks &&
-        navLinks.classList.contains('active') &&
-        !navLinks.contains(event.target) &&
-        !burger.contains(event.target)
-      ) {
-        navLinks.classList.remove('active');
-      }
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !burger.contains(e.target))
+        navLinks.classList.remove('open');
     });
-
-    // Basic reveal-on-scroll animation
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('show');
-        });
-      },
-      { threshold: 0.12 }
-    );
-    revealEls.forEach((el) => io.observe(el));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) en.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   </script>
 </body>
 </html>
