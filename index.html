@@ -3,331 +3,353 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Slot IQ helps you log and analyze slot sessions with clean records, insights, and shared data trends." />
-  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="description" content="SlotIQ turns every slot session into real intelligence about how you play. Track sessions free forever — unlock your Player IQ, Gambling DNA, Forecast Center and Community insights." />
+  <meta name="theme-color" content="#0c0c10" />
 
   <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Slot IQ" />
-  <meta property="og:description" content="Log and analyze slot sessions with clean records, insights, and shared data trends." />
+  <meta property="og:title" content="SlotIQ — Player Intelligence Through Statistics" />
+  <meta property="og:description" content="Turn every slot session into real intelligence about how you play. Free to use, forever." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:image" content="images/shot-1.jpg" />
 
-  <!-- Performance: Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <title>Slot IQ</title>
-  <!-- Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>SlotIQ — Player Intelligence Through Statistics</title>
   <link rel="shortcut icon" href="images/logo.png" type="image/png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <!-- Navigation Bar (Sticky) -->
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <!-- Logo + Brand -->
-      <div class="nav-left">
-        <img src="images/logo.png" alt="Slot IQ Logo" class="app-logo" />
-        <span class="nav-brand">Slot IQ</span>
-      </div>
 
-      <!-- Burger menu icon -->
-      <div class="burger" aria-label="Open menu" role="button" tabindex="0">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+  <!-- ambient background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
 
-      <!-- Nav Links -->
-      <ul class="nav-links" aria-label="Site navigation">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="affiliate.html">Affiliate Program</a></li>
+  <!-- ============================== NAV ============================== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="SlotIQ logo" />
+        <span class="brand-word">SLOT<em>IQ</em></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="affiliate.html">Affiliates</a></li>
         <li><a href="pages/support.html">Support</a></li>
-        <li><a href="pages/privacy.html">Privacy Information</a></li>
-        <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
-        <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
       </ul>
+
+      <a href="#download" class="btn btn-primary nav-cta">Download</a>
+
+      <button class="burger" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- HERO SECTION (Modern) -->
-  <header class="hero" id="top">
-    <div class="hero-grid">
-      <div class="hero-content reveal">
-        <h1>Track sessions. Discover patterns. Enjoy the stats.</h1>
-        <p class="hero-description">
-          Slot IQ makes it easy to log sessions, explore trends over time, and view shared insights —
-          built for clean records and simple analytics.
+  <!-- ============================== HERO ============================== -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow-pill">✦&nbsp; SlotIQ 2.0 — our biggest update yet</span>
+        <h1>Player intelligence<br /><span class="grad">through statistics.</span></h1>
+        <p class="lede">
+          SlotIQ turns every slot session into real intelligence about how you play.
+          Track your play, discover your patterns, and see what the community is
+          tracking — built from your own real data. No guesswork. No gimmicks.
         </p>
 
-        <div class="cta-row">
-          <a href="#download-section" class="cta-button">Download Now</a>
-          <a href="#features" class="cta-secondary">See what it does</a>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/us/app/slot-injection-pro/id6740422062" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.81C3.23 2.21 3 2.83 3 3.63v16.74c0 .8.23 1.42.61 1.82l.1.09 9.38-9.38v-.21L3.71 1.71l-.1.1zm13.79 6.84-3.13 3.13v.21l3.13 3.14 3.62-2.06c1.04-.59 1.04-1.55 0-2.14l-3.62-2.06v-.22zM4.05 22.6c.34.36.9.4 1.53.05l11.1-6.31-3.42-3.41-9.21 9.67zm0-21.2 9.21 9.66 3.42-3.4L5.58 1.34c-.63-.36-1.19-.31-1.53.06z"/></svg>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
         </div>
 
-        <div class="hero-badges" aria-label="Highlights">
-          <span class="pill">Fast session logging</span>
-          <span class="pill">Clean analytics</span>
-          <span class="pill">Shared insights</span>
-          <span class="pill">Groups &amp; privacy-focused</span>
+        <div class="hero-trust">
+          <span>★★★★★ Loved by real players</span>
+          <span class="dot">·</span>
+          <span>Free to use, forever</span>
+          <span class="dot">·</span>
+          <span>Private by design</span>
         </div>
       </div>
 
-      <div class="hero-card reveal" aria-label="App preview">
-        <div class="hero-card-inner">
-          <div class="hero-shot-pair" aria-label="Slot IQ connected app screenshots">
-            <img src="images/1.jpg" alt="Slot IQ app screenshot 1" class="hero-shot hero-shot-connected-left" />
-            <img src="images/2.jpg" alt="Slot IQ app screenshot 2" class="hero-shot hero-shot-connected-right" />
-          </div>
-          <div class="mini-stats" aria-label="Quick benefits">
-            <div class="stat"><b>Log</b><span>sessions in seconds</span></div>
-            <div class="stat"><b>Analyze</b><span>trends over time</span></div>
-            <div class="stat"><b>Share</b><span>anonymous insights</span></div>
-          </div>
-        </div>
+      <div class="hero-shot reveal">
+        <div class="phone-glow"></div>
+        <img src="images/shot-1.jpg" alt="SlotIQ dashboard showing the Player IQ score" />
       </div>
     </div>
   </header>
 
-  <!-- FEATURES -->
-  <section class="section" id="features">
-    <div class="section-title reveal">
-      <h2>Everything you need to track smarter</h2>
-      <p>
-        Built to feel simple day one — but powerful once you start exploring your data.
-      </p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card reveal">
-        <h3>Session Tracking</h3>
-        <p>Quickly record key details for each session and keep your history organized in one place.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Analytics &amp; Trends</h3>
-        <p>See performance patterns over time with clean visuals designed to be easy to understand.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Shared Insights</h3>
-        <p>Explore aggregated, anonymized insights and group features to compare trends with others.</p>
-      </div>
+  <!-- ============================ STAT STRIP ============================ -->
+  <section class="strip">
+    <div class="container strip-grid">
+      <div class="strip-item reveal"><b>Player IQ</b><span>your skill in one score</span></div>
+      <div class="strip-item reveal"><b>Gambling DNA</b><span>your one-of-a-kind profile</span></div>
+      <div class="strip-item reveal"><b>Forecast Center</b><span>your edge, uncovered</span></div>
+      <div class="strip-item reveal"><b>Community</b><span>real pooled machine RTP</span></div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section" id="how-it-works">
-    <div class="section-title reveal">
-      <h2>How it works</h2>
-      <p>Start simple: log sessions, review your stats, then explore shared trends when you’re ready.</p>
-    </div>
+  <!-- ============================ FEATURES ============================ -->
+  <section id="features" class="features">
 
-    <div class="how">
-      <div class="step reveal">
-        <div class="num">1</div>
-        <h4>Log a session</h4>
-        <p>Track your session details quickly so you always have clean records to look back on.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">2</div>
-        <h4>Explore analytics</h4>
-        <p>View charts and trends that help you understand patterns over time.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">3</div>
-        <h4>Use shared insights</h4>
-        <p>View aggregated insights — designed to keep users anonymous.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">4</div>
-        <h4>Stay organized</h4>
-        <p>Keep your history tidy and searchable so it’s easy to review whenever you want.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 1: Text on Left, Image on Right -->
-  <section class="screenshots" id="screenshots-1">
-    <div class="screenshots-grid">
-      <!-- Text (left) -->
-      <div class="screenshots-content">
-        <h2>Your Ultimate Tracking Companion</h2>
+    <!-- Player IQ -->
+    <div class="container feature-grid">
+      <div class="feature-copy reveal">
+        <span class="eyebrow cyan">PLAYER IQ SCORE</span>
+        <h2>Know your <span class="grad">Player IQ.</span></h2>
         <p>
-            Get a complete overview of your slot gameplay with Slot IQ. 
-            Designed for simplicity and convenience, the app makes it easy to log 
-            sessions and explore data for a deeper understanding of your activity.
+          One score that captures your skill across every session — and climbs as you
+          sharpen up. See exactly where you stand, from Beginner to Elite, with the
+          numbers behind it: win rate, average RTP, and your net result.
         </p>
-        <a href="#download-section" class="cta-button">Download Now</a>
+        <ul class="checks">
+          <li>A single 0–100 score built from your real behavior</li>
+          <li>Watch it climb month over month as you improve</li>
+          <li>Beginner → Intermediate → Advanced → Elite tiers</li>
+        </ul>
       </div>
-
-      <!-- Single Image (right) -->
-      <div class="screenshots-images single">
-        <img src="images/3.jpg" alt="Screenshot 1" />
+      <div class="feature-shot reveal">
+        <img src="images/shot-1.jpg" alt="Player IQ score on the SlotIQ dashboard" loading="lazy" />
       </div>
     </div>
-  </section>
 
-  <!-- SECTION 2: Triple Images (Reversed => images left, text right) -->
-  <!-- We add 'left-align' to the .screenshots-content so that ONLY this section's text is left aligned. -->
-  <section class="screenshots" id="screenshots-2">
-    <div class="screenshots-grid reversed">
-      <div class="screenshots-content left-align">
-        <h2>Powerful Tools for Tracking and Insights</h2>
+    <!-- Sessions -->
+    <div class="container feature-grid flip">
+      <div class="feature-copy reveal">
+        <span class="eyebrow green">SESSION TRACKING — FREE FOREVER</span>
+        <h2>Every session, <span class="grad">tracked.</span></h2>
         <p>
-            Explore the features that make Slot IQ easy to use from day one:
-            <br><br>
-            • Access shared data insights for aggregated slot statistics.<br>
-            • Analyze machine performance trends over time.<br>
-            • Join groups and share anonymized data with others.
+          Log unlimited sessions and watch your profit and loss come to life over time.
+          Lifetime net, win rate, biggest wins, time played, win/loss record — your
+          whole journey, beautifully charted. Always free.
         </p>
-        <a href="#download-section" class="cta-button">Download Now</a>
+        <ul class="checks">
+          <li>Unlimited session logging at no cost</li>
+          <li>Profit / loss charted across any time range</li>
+          <li>Full history with machines, casinos and details</li>
+        </ul>
       </div>
-
-      <div class="screenshots-images triple">
-        <img src="images/4.jpg" alt="Screenshot 2" />
-        <img src="images/7.jpg" alt="Screenshot 3" />
-        <img src="images/6.jpg" alt="Screenshot 4" />
+      <div class="feature-shot reveal">
+        <img src="images/shot-2.jpg" alt="Session tracking with profit and loss chart" loading="lazy" />
       </div>
     </div>
-  </section>
 
-  <!-- SECTION 3: Text on Left, Image on Right -->
-  <section class="screenshots" id="screenshots-3">
-    <div class="screenshots-grid">
-      <div class="screenshots-content">
-        <h2>Dive Into In-Depth Analytics</h2>
+    <!-- DNA -->
+    <div class="container feature-grid">
+      <div class="feature-copy reveal">
+        <span class="eyebrow purple">GAMBLING DNA</span>
+        <h2>Discover your <span class="grad">Gambling DNA.</span></h2>
         <p>
-            Slot IQ provides tools to log sessions and explore trends with 
-            detailed charts, group features, and shared insights.
+          A one-of-a-kind profile of exactly how you play — discipline, bet control,
+          chasing control, cash-out timing and more — measured against the entire
+          SlotIQ community. Discover your player type and what's holding you back.
         </p>
-        <a href="#download-section" class="cta-button">Download Now</a>
+        <ul class="checks">
+          <li>Eight behavioral dimensions, scored from your data</li>
+          <li>See how you compare to all SlotIQ players</li>
+          <li>Your player type: Chaser, Grinder, Sniper &amp; more</li>
+        </ul>
       </div>
-      
-      <!-- Single Image on Right -->
-      <div class="screenshots-images single">
-        <img src="images/5.jpg" alt="Screenshot 5" />
+      <div class="feature-shot reveal">
+        <img src="images/shot-3.jpg" alt="Gambling DNA radar profile" loading="lazy" />
       </div>
     </div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials-section" id="testimonials">
-    <div class="section-title reveal">
-      <h2>What players are saying</h2>
-      <p>Real reviews from the App Store. No fluff.</p>
-    </div>
-    <div class="testimonials-grid">
-
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I gamble a little too much… This app helped me a lot with tracking my budget, and making smarter decisions based on REAL data."</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">Blaxorus</span>
-          <span class="testimonial-source">App Store · Feb 22</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I've used this app many times to keep track of my winnings on machines. I've definitely earned more returning to my higher paying machines than I would've if not for this app!"</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">Msandoval1525</span>
-          <span class="testimonial-source">App Store · 2 days ago</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"This app has it all! I love being able to track my gameplay and view statistics without the hassle of keeping track of it all manually."</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">Deya1967</span>
-          <span class="testimonial-source">App Store · Feb 2, 2025</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Love the app and UI. Made it very easy and convenient to keep track of all my slot sessions and statistics. Overall great app."</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">RomRftw</span>
-          <span class="testimonial-source">App Store · Feb 11, 2025</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FINAL DOWNLOAD SECTION (QR Codes) -->
-  <section class="download-section" id="download-section">
-    <div class="download-wrap reveal">
-      <div class="download-inner">
-        <h2>Ready to download?</h2>
+    <!-- Forecast -->
+    <div class="container feature-grid flip">
+      <div class="feature-copy reveal">
+        <span class="eyebrow blue">FORECAST CENTER</span>
+        <h2>Your edge, <span class="grad">uncovered.</span></h2>
         <p>
-          Pick your platform below. You’ll be taken directly to the App Store / Google Play.
+          Your strongest games, your best days, and your peak windows — surfaced
+          straight from your real history. Play to your strengths with insights drawn
+          only from your own sessions. Patterns, never predictions.
         </p>
+        <ul class="checks">
+          <li>Your best-fit machine, denomination and bet range</li>
+          <li>Strongest days and peak time windows</li>
+          <li>Behavior alerts and personal coaching insights</li>
+        </ul>
+      </div>
+      <div class="feature-shot reveal">
+        <img src="images/shot-4.jpg" alt="Forecast Center with best-fit profile and best days" loading="lazy" />
+      </div>
+    </div>
 
-        <div class="qr-codes">
-          <div class="qr-item">
-            <a href="https://apps.apple.com/us/app/slot-injection-pro/id6740422062" target="_blank" rel="noopener noreferrer">
-              <img src="images/ios-badge.png" alt="Download on the App Store" />
-            </a>
-            <p>Download for iOS</p>
-          </div>
-          <div class="qr-item">
-            <a href="https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US" target="_blank" rel="noopener noreferrer">
-              <img src="images/android-badge.png" alt="Get it on Google Play" />
-            </a>
-            <p>Download for Android</p>
-          </div>
+    <!-- Community -->
+    <div class="container feature-grid" id="community">
+      <div class="feature-copy reveal">
+        <span class="eyebrow cyan">COMMUNITY INSIGHTS</span>
+        <h2>See what the <span class="grad">community plays.</span></h2>
+        <p>
+          Real RTP from thousands of pooled, anonymized sessions across machines,
+          casinos, and states. Filter by your state or your casino and see what the
+          SlotIQ community is actually tracking — historical, transparent, and honest.
+        </p>
+        <ul class="checks">
+          <li>Highest and lowest community RTP by machine</li>
+          <li>Filter by state and casino</li>
+          <li>Anonymized and aggregated — always</li>
+        </ul>
+      </div>
+      <div class="feature-shot reveal">
+        <img src="images/shot-5.jpg" alt="Community machine RTP board" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FREE vs PREMIUM ============================ -->
+  <section class="plans">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Free to use. <span class="grad">Premium when you're ready.</span></h2>
+        <p>Track every session at no cost, forever. Upgrade anytime to unlock the full picture.</p>
+      </div>
+      <div class="plan-grid">
+        <div class="plan-card reveal">
+          <h3>Free</h3>
+          <div class="plan-price">$0 <span>forever</span></div>
+          <ul class="checks">
+            <li>Unlimited session tracking</li>
+            <li>Profit / loss charts &amp; lifetime stats</li>
+            <li>Full session history</li>
+            <li>Achievements &amp; milestones</li>
+          </ul>
+        </div>
+        <div class="plan-card featured reveal">
+          <div class="plan-flag">EVERYTHING IN FREE, PLUS</div>
+          <h3>SlotIQ Premium</h3>
+          <div class="plan-price">$12.99<span>/mo</span> <em>or $89.99/yr</em></div>
+          <ul class="checks">
+            <li>Player IQ Score &amp; monthly trend</li>
+            <li>Gambling DNA profile</li>
+            <li>Forecast Center &amp; coaching insights</li>
+            <li>Community machine RTP board</li>
+            <li>Machine &amp; time deep analysis</li>
+          </ul>
+          <a class="btn btn-primary" href="#download">Get the app</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ============================ REVIEWS ============================ -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>What players <span class="grad">are saying.</span></h2>
+        <p>Real reviews from the App Store. No fluff.</p>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"I gamble a little too much… This app helped me a lot with tracking my budget, and making smarter decisions based on REAL data."</p>
+          <div class="review-by"><b>Blaxorus</b><span>App Store</span></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"I've used this app many times to keep track of my winnings on machines. I've definitely earned more returning to my higher paying machines than I would've if not for this app!"</p>
+          <div class="review-by"><b>Msandoval1525</b><span>App Store</span></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"This app has it all! I love being able to track my gameplay and view statistics without the hassle of keeping track of it all manually."</p>
+          <div class="review-by"><b>Deya1967</b><span>App Store</span></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Love the app and UI. Made it very easy and convenient to keep track of all my slot sessions and statistics. Overall great app."</p>
+          <div class="review-by"><b>RomRftw</b><span>App Store</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DOWNLOAD ============================ -->
+  <section class="download" id="download">
+    <div class="container">
+      <div class="download-card reveal">
+        <h2>Track smarter. <span class="grad">Play sharper.</span></h2>
+        <p>Download SlotIQ free and turn your next session into intelligence.</p>
+        <div class="store-row center">
+          <a class="store-btn" href="https://apps.apple.com/us/app/slot-injection-pro/id6740422062" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.81C3.23 2.21 3 2.83 3 3.63v16.74c0 .8.23 1.42.61 1.82l.1.09 9.38-9.38v-.21L3.71 1.71l-.1.1zm13.79 6.84-3.13 3.13v.21l3.13 3.14 3.62-2.06c1.04-.59 1.04-1.55 0-2.14l-3.62-2.06v-.22zM4.05 22.6c.34.36.9.4 1.53.05l11.1-6.31-3.42-3.41-9.21 9.67zm0-21.2 9.21 9.66 3.42-3.4L5.58 1.34c-.63-.36-1.19-.31-1.53.06z"/></svg>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+        <p class="fine">Free to download · No card required · Cancel premium anytime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
   <footer class="footer">
-    <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-word">SLOT<em>IQ</em></span>
+        <p>Player intelligence through statistics.</p>
+      </div>
+      <div class="footer-col">
+        <h5>App</h5>
+        <a href="#features">Features</a>
+        <a href="#community">Community</a>
+        <a href="#download">Download</a>
+        <a href="affiliate.html">Affiliate Program</a>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <a href="pages/support.html">Support</a>
+        <a href="pages/bugs-updates.html">Bugs &amp; Updates</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="pages/terms-of-service.html">Terms of Service</a>
+        <a href="pages/privacy-policy.html">Privacy Policy</a>
+        <a href="pages/privacy.html">Privacy Information</a>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>SlotIQ is a personal statistics and tracking tool. It does not involve real-money gambling and makes no predictions or guarantees about outcomes. Please play responsibly.</p>
+      <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
   <script>
-    // Burger menu toggle functionality
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    function toggleMenu(){
-      navLinks.classList.toggle('active');
-    }
-
-    burger.addEventListener('click', toggleMenu);
-    burger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !burger.contains(e.target))
+        navLinks.classList.remove('open');
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (
-        navLinks.classList.contains('active') &&
-        !navLinks.contains(event.target) &&
-        !burger.contains(event.target)
-      ) {
-        navLinks.classList.remove('active');
-      }
-    });
-
-    // Basic reveal-on-scroll animation
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('show');
-        });
-      },
-      { threshold: 0.12 }
-    );
-    revealEls.forEach((el) => io.observe(el));
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) en.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   </script>
 </body>
 </html>
