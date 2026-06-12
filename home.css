@@ -374,8 +374,9 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(12, 12, 16, 0.97);
+    background: #0e0e14;
     border-bottom: 1px solid var(--stroke);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
     flex-direction: column;
     gap: 0;
     padding: 8px 24px 16px;
