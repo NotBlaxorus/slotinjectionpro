@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The complete SlotIQ guide for newcomers: a quick tutorial, then a detailed tour of every screen — Player IQ, Sessions, Gambling DNA, Forecast Center and Community — plus what it means to be each player type." />
+  <meta name="theme-color" content="#0c0c10" />
+
+  <meta property="og:title" content="SlotIQ — The Complete Guide" />
+  <meta property="og:description" content="Everything you need to track smarter and play sharper — a newcomer's walkthrough of every screen in the app." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="images/shot-1.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>SlotIQ — The Complete Guide</title>
+  <link rel="shortcut icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="home.css" />
+  <style>
+    :root { --red: #ef4444; } /* home.css defines cyan/blue/purple/green; add red for this page */
+    html { scroll-padding-top: 84px; } /* anchor offset under sticky nav */
+
+    .guide-hero { padding: 70px 0 34px; text-align: center; }
+    .guide-hero .eyebrow-pill { margin-bottom: 20px; }
+    .guide-hero h1 { color: var(--text-hi); font-size: clamp(34px, 5vw, 52px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; }
+    .guide-hero p { max-width: 600px; margin: 18px auto 0; font-size: 17px; }
+
+    /* Table of contents */
+    .toc { max-width: 760px; margin: 0 auto; background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius); padding: 22px 24px; }
+    .toc h3 { color: var(--text-hi); font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 14px; }
+    .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 26px; }
+    .toc li { counter-increment: toc; }
+    .toc a { display: flex; gap: 10px; align-items: baseline; color: var(--text-lo); text-decoration: none; font-size: 14.5px; padding: 6px 0; border-bottom: 1px solid transparent; transition: color .15s; }
+    .toc a:hover { color: var(--text-hi); }
+    .toc a::before { content: counter(toc); color: var(--cyan); font-weight: 800; font-size: 13px; min-width: 18px; }
+
+    .guide-section { padding: 54px 0 6px; border-top: 1px solid var(--stroke); }
+    .guide-section:first-of-type { border-top: 0; }
+    .guide-section h2 { color: var(--text-hi); font-size: clamp(24px, 3.4vw, 34px); font-weight: 900; line-height: 1.16; }
+    .guide-section h3 { color: var(--blue); font-size: 17px; font-weight: 800; margin: 22px 0 8px; }
+    .guide-section p { font-size: 15.5px; margin-top: 10px; }
+    .lede { font-size: 17px !important; color: var(--text-lo); }
+
+    /* callouts */
+    .callout { border-radius: 14px; padding: 16px 18px; margin: 18px 0; border-left: 3px solid var(--blue); background: rgba(59,130,246,.07); }
+    .callout b { color: var(--text-hi); }
+    .callout.green  { border-left-color: var(--green);  background: rgba(52,211,153,.08); }
+    .callout.amber  { border-left-color: #fbbf24;       background: rgba(251,191,36,.08); }
+    .callout.purple { border-left-color: var(--purple); background: rgba(139,92,246,.09); }
+    .callout .ct { display: block; color: var(--text-hi); font-weight: 800; margin-bottom: 5px; }
+
+    /* numbered steps */
+    .steps { margin-top: 22px; display: grid; gap: 14px; }
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+    .step .n { flex: none; width: 38px; height: 38px; border-radius: 11px; background: var(--grad); color: #fff; font-weight: 900; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+    .step b { color: var(--text-hi); display: block; font-size: 15.5px; }
+    .step span { color: var(--text-lo); font-size: 14.5px; }
+
+    /* data tables */
+    .gtable { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14.5px; border: 1px solid var(--stroke); border-radius: 12px; overflow: hidden; }
+    .gtable td { padding: 11px 14px; border-top: 1px solid var(--stroke); color: var(--text-lo); vertical-align: top; }
+    .gtable tr:first-child td { border-top: 0; }
+    .gtable .k { color: var(--text-hi); font-weight: 700; white-space: nowrap; width: 28%; }
+    .gtable .hi b { color: var(--green); } .gtable .lo b { color: var(--red); }
+
+    /* player-type cards */
+    .pt-grid { display: grid; gap: 12px; margin-top: 18px; }
+    .pt-card { background: var(--card); border: 1px solid var(--stroke); border-left: 3px solid var(--accent, var(--blue)); border-radius: 12px; padding: 14px 16px; }
+    .pt-card .name { font-weight: 800; font-size: 15px; color: var(--accent, var(--blue)); margin-bottom: 4px; }
+    .pt-card p { margin: 0; font-size: 14.5px; }
+    .pt-card .watch { color: var(--text-faint); }
+
+    .guide-plans { grid-template-columns: 1fr 1fr; max-width: none; }
+    @media (max-width: 760px) { .toc ol { grid-template-columns: 1fr; } .guide-plans { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
+  </div>
+
+  <!-- ============================== NAV ============================== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="SlotIQ logo" />
+        <span class="brand-word">SLOT<em>IQ</em></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="guide.html">Guide</a></li>
+        <li><a href="index.html#community">Community</a></li>
+        <li><a href="affiliate.html">Affiliates</a></li>
+        <li><a href="pages/support.html">Support</a></li>
+      </ul>
+      <a href="index.html#download" class="btn btn-primary nav-cta">Download</a>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ============================== HERO ============================== -->
+  <header class="guide-hero">
+    <div class="container">
+      <span class="eyebrow-pill">✦&nbsp; The Complete Guide</span>
+      <h1>Everything you need to<br /><span class="grad">track smarter &amp; play sharper.</span></h1>
+      <p>A newcomer's walkthrough of every screen in SlotIQ — a quick first-session tutorial,
+         then a detailed tour of your Player IQ, Sessions, Gambling DNA, Forecast Center and
+         Community board, including what it means to be each player type.</p>
+    </div>
+  </header>
+
+  <!-- ============================== TOC ============================== -->
+  <section class="container" style="padding-bottom: 8px;">
+    <div class="toc reveal">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#welcome">Welcome to SlotIQ</a></li>
+        <li><a href="#quickstart">Quick Start: your first 5 minutes</a></li>
+        <li><a href="#dashboard">The Dashboard &amp; your Player IQ</a></li>
+        <li><a href="#sessions">Sessions: track every visit</a></li>
+        <li><a href="#dna">Gambling DNA &amp; player types</a></li>
+        <li><a href="#forecast">The Forecast Center</a></li>
+        <li><a href="#community">Community insights</a></li>
+        <li><a href="#premium">Free vs. Premium &amp; pro tips</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- ===================== 1 WELCOME ===================== -->
+    <section class="guide-section" id="welcome">
+      <span class="eyebrow cyan">SECTION 1</span>
+      <h2>Welcome to SlotIQ</h2>
+      <p class="lede">SlotIQ turns every slot session you play into real intelligence about how you play.
+        Log your visits and the app quietly builds a clear picture of your performance, your habits,
+        and your edge — all from your own real data. No guesswork, no gimmicks.</p>
+      <p>This guide walks a brand-new player through the whole app: a quick first-session tutorial,
+        then a detailed tour of every screen. By the end you'll know exactly what every number means
+        and how to use it.</p>
+      <h3>The one idea behind everything</h3>
+      <p>SlotIQ is built on a simple promise: <b style="color:var(--text-hi)">patterns, never predictions.</b>
+        It will never tell you a machine is "due" or which game to play next — no app can know that.
+        Instead, it reflects what has actually happened in your history (and, anonymously, the
+        community's), so you can make calmer, better-informed decisions.</p>
+      <div class="callout green">
+        <span class="ct">Free to use, forever</span>
+        Tracking your sessions and seeing your real totals is <b>always free</b>. The deeper intelligence —
+        Player IQ, Gambling DNA, Forecast, and Community — is a premium upgrade ($12.99/mo or $89.99/yr),
+        shown blurred in the app so you always know what's there before you unlock it.
+      </div>
+    </section>
+
+    <!-- ===================== 2 QUICK START ===================== -->
+    <section class="guide-section" id="quickstart">
+      <span class="eyebrow blue">SECTION 2</span>
+      <h2>Quick Start: your first five minutes</h2>
+      <p class="lede">You can be up and running in a few taps. Here's the whole flow from install to your first tracked session.</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><b>Download and open the app</b><span>It's free and there's no card required to start. Grab it from the App Store or Google Play.</span></div></div>
+        <div class="step"><div class="n">2</div><div><b>Create your account</b><span>Enter your email and a password. We'll email a short confirmation code — type it in to verify. (Codes aren't case-sensitive.)</span></div></div>
+        <div class="step"><div class="n">3</div><div><b>Tap "Start Session"</b><span>Choose the casino you're at (it autofills places you've used), the machine you're playing, and your money in.</span></div></div>
+        <div class="step"><div class="n">4</div><div><b>Play, and add machines as you go</b><span>Moved to another machine? Tap <b style="color:var(--text-hi)">Add Machine</b>. SlotIQ keeps the whole visit together as one session.</span></div></div>
+        <div class="step"><div class="n">5</div><div><b>Tap "End Session" when you're done</b><span>Enter your final cash-out and answer a couple of quick wrap-up questions. That's it — saved.</span></div></div>
+        <div class="step"><div class="n">6</div><div><b>Open your Dashboard</b><span>Your Net, Win Rate and Time Played update instantly. Log a few more and your Player IQ, DNA and Forecast come to life.</span></div></div>
+      </div>
+      <div class="callout amber">
+        <span class="ct">Tip: log everything, even the quick ones</span>
+        The five-minute machine you barely touched still teaches SlotIQ about your habits. The more you log,
+        the sharper every screen becomes.
+      </div>
+    </section>
+
+    <!-- ===================== 3 DASHBOARD ===================== -->
+    <section class="guide-section" id="dashboard">
+      <div class="feature-grid" style="padding-top: 12px;">
+        <div class="feature-copy">
+          <span class="eyebrow cyan">SECTION 3</span>
+          <h2>The Dashboard &amp; your Player IQ</h2>
+          <p>Your home screen is your command center. The hero card is the <b style="color:var(--text-hi)">Player IQ Score</b> —
+            a single 0–100 number that captures your skill as a player and climbs as you sharpen up.</p>
+          <h3>What the Player IQ Score means</h3>
+          <p>It's a weighted blend of your healthiest habits: discipline, cash-out timing, consistency,
+            staying calm after losses, protecting your profit, and steady bet sizing.</p>
+          <h3>The four headline stats</h3>
+          <p><b style="color:var(--text-hi)">Sessions</b> is how many visits you've logged. <b style="color:var(--text-hi)">Win Rate</b>
+            is the share you finished ahead. <b style="color:var(--text-hi)">Avg RTP</b> is money out ÷ money in (over 100% means
+            you're up overall). <b style="color:var(--text-hi)">Net Result</b> is your lifetime profit or loss.</p>
+        </div>
+        <div class="feature-shot"><img src="images/shot-1.jpg" alt="SlotIQ Dashboard and Player IQ score" loading="lazy" /></div>
+      </div>
+      <h3>Your Player IQ tiers</h3>
+      <table class="gtable">
+        <tr><td class="k">Beginner</td><td>0–49</td><td>Just getting started — keep logging.</td></tr>
+        <tr><td class="k">Intermediate</td><td>50–69</td><td>"Developing Player" — solid habits forming.</td></tr>
+        <tr><td class="k">Advanced</td><td>70–89</td><td>Disciplined and consistent.</td></tr>
+        <tr><td class="k">Elite</td><td>90–100</td><td>Top-tier control and protection.</td></tr>
+      </table>
+      <div class="callout green">
+        <span class="ct">Your Numbers — always free</span>
+        Below the IQ card, the <b>Your Numbers</b> panel shows your real totals: Lifetime Net, Sessions,
+        Time Played, Biggest Win, Biggest Loss, and your win–loss Record. Free for everyone, forever.
+      </div>
+    </section>
+
+    <!-- ===================== 4 SESSIONS ===================== -->
+    <section class="guide-section" id="sessions">
+      <div class="feature-grid flip" style="padding-top: 12px;">
+        <div class="feature-copy">
+          <span class="eyebrow green">SECTION 4</span>
+          <h2>Sessions: track every visit</h2>
+          <p class="lede">The Sessions tab is where it all begins — every visit you log feeds everything else.</p>
+          <h3>Starting and ending a session</h3>
+          <p>Tap <b style="color:var(--text-hi)">Start Session</b>, pick your casino (it autofills), add the machine and your money in,
+            and you're tracking. When you're done, <b style="color:var(--text-hi)">End Session</b> asks for your cash-out and a couple of details, then saves it.</p>
+          <h3>Simple vs. Advanced mode</h3>
+          <p><b style="color:var(--text-hi)">Simple</b> is fast: money in, money out, done. <b style="color:var(--text-hi)">Advanced</b>
+            tracks denomination and bet changes live as you play, which makes your Gambling DNA richer and more accurate.</p>
+        </div>
+        <div class="feature-shot"><img src="images/shot-2.jpg" alt="SlotIQ Sessions tab with profit/loss chart" loading="lazy" /></div>
+      </div>
+      <h3>Reading your history</h3>
+      <p>The <b style="color:var(--text-hi)">Profit / Loss over time</b> chart turns your sessions into a running line of your bankroll —
+        green when you're up, red when you're down. Below it, <b style="color:var(--text-hi)">Session History</b> lists every visit with
+        the date, machine, bet, denomination, casino and your in/out. Tap a session for a per-machine breakdown; tap a machine for its full Machine Analysis.</p>
+      <div class="callout">
+        <span class="ct">Use the Machine ID field</span>
+        When you add a machine there's a spot for the house <b>Machine ID</b> (the number on the cabinet). It's optional, but filling it
+        in lets SlotIQ tell two "Dragon Link" cabinets apart and gives you precise, per-cabinet analysis.
+      </div>
+    </section>
+
+    <!-- ===================== 5 DNA ===================== -->
+    <section class="guide-section" id="dna">
+      <div class="feature-grid" style="padding-top: 12px;">
+        <div class="feature-copy">
+          <span class="eyebrow purple">SECTION 5</span>
+          <h2>Gambling DNA: how you really play</h2>
+          <p class="lede">Your Gambling DNA is a one-of-a-kind profile of <b style="color:var(--text-hi)">how</b> you play —
+            not just whether you won. The radar scores you on eight traits and overlays the average of all SlotIQ players.</p>
+          <h3>Your player type</h3>
+          <p>At the top, SlotIQ names your <b style="color:var(--text-hi)">player type</b> — a plain-English summary of your style,
+            like "Chaser" or "Sniper." It's the headline of your DNA; the eight traits below explain why.</p>
+        </div>
+        <div class="feature-shot"><img src="images/shot-3.jpg" alt="SlotIQ Gambling DNA radar chart" loading="lazy" /></div>
+      </div>
+      <h3>The eight traits, decoded</h3>
+      <table class="gtable">
+        <tr><td class="k">Discipline</td><td class="hi"><b>High:</b> you stick to a plan and stop near your goals.</td><td class="lo"><b>Low:</b> sessions run long and loose.</td></tr>
+        <tr><td class="k">Cash-Out Discipline</td><td class="hi"><b>High:</b> you leave with your money.</td><td class="lo"><b>Low:</b> you give wins back before cashing out.</td></tr>
+        <tr><td class="k">Chasing Control</td><td class="hi"><b>High:</b> you stay calm after a loss.</td><td class="lo"><b>Low:</b> you reload or bet up to recover.</td></tr>
+        <tr><td class="k">Bet Control</td><td class="hi"><b>High:</b> steady, consistent stake sizing.</td><td class="lo"><b>Low:</b> bets jump around a lot.</td></tr>
+        <tr><td class="k">Session Consistency</td><td class="hi"><b>High:</b> repeatable, steady results.</td><td class="lo"><b>Low:</b> big swings session to session.</td></tr>
+        <tr><td class="k">Emotional Stability</td><td class="hi"><b>High:</b> even-keeled across visits.</td><td class="lo"><b>Low:</b> reactive, mood-driven play.</td></tr>
+        <tr><td class="k">Machine Loyalty</td><td class="hi"><b>High:</b> you focus on a core set of machines.</td><td class="lo"><b>Low:</b> you hop around constantly.</td></tr>
+        <tr><td class="k">Profit Protection</td><td class="hi"><b>High:</b> your wins are big and well-kept.</td><td class="lo"><b>Low:</b> wins are thin or given back.</td></tr>
+      </table>
+
+      <h3>What it means to be each player type</h3>
+      <p>Your type is the single pattern that defines your play right now. None is "bad" — each has a real strength and one thing worth watching.</p>
+      <div class="pt-grid">
+        <div class="pt-card" style="--accent:var(--red)"><div class="name">The Chaser</div><p>You extend sessions and reload after losses; you play with heart and persistence. <span class="watch"><b>Watch:</b> losses can snowball — set a stop-loss and keep your stake steady after a downswing.</span></p></div>
+        <div class="pt-card" style="--accent:var(--green)"><div class="name">The Grinder</div><p>Consistent, steady, low-drama play that books small wins reliably. <span class="watch"><b>Watch:</b> you can plateau — your discipline can support the occasional calculated bigger shot.</span></p></div>
+        <div class="pt-card" style="--accent:var(--blue)"><div class="name">The Sniper</div><p>Focused on a small set of machines you know well, with sharp cash-out timing. <span class="watch"><b>Watch:</b> tunnel vision — glance at Community to confirm your machines are still the strong ones.</span></p></div>
+        <div class="pt-card" style="--accent:var(--purple)"><div class="name">The High Roller</div><p>Big average buy-ins and the nerve to match. <span class="watch"><b>Watch:</b> variance is brutal at high stakes — lean on Cash-Out Discipline to bank profit.</span></p></div>
+        <div class="pt-card" style="--accent:#fbbf24"><div class="name">The Explorer</div><p>You sample lots of different machines and love variety. <span class="watch"><b>Watch:</b> low machine loyalty makes your patterns noisy — settle in to truly learn a few cabinets.</span></p></div>
+        <div class="pt-card" style="--accent:var(--cyan)"><div class="name">The Disciplined Player</div><p>Textbook control: you set goals, leave with money, and keep stakes even. <span class="watch"><b>Watch:</b> keep it up — this is the profile that climbs to Elite.</span></p></div>
+        <div class="pt-card" style="--accent:#8794ab"><div class="name">The Opportunist</div><p>Adaptable, with no single dominant pattern yet. <span class="watch"><b>Watch:</b> build consistency — a steadier rhythm is the fastest way to raise your Player IQ.</span></p></div>
+      </div>
+      <div class="callout purple">
+        <span class="ct">How your type is chosen</span>
+        SlotIQ reads your real sessions — how long you play, how you bet after losses, how many machines you touch, how much of your
+        peak you keep — and matches the strongest signal to a type. Play differently over time and your type changes with you.
+      </div>
+    </section>
+
+    <!-- ===================== 6 FORECAST ===================== -->
+    <section class="guide-section" id="forecast">
+      <div class="feature-grid flip" style="padding-top: 12px;">
+        <div class="feature-copy">
+          <span class="eyebrow blue">SECTION 6</span>
+          <h2>The Forecast Center: your edge, uncovered</h2>
+          <p class="lede">The Forecast Center surfaces where your tracked sessions have run strongest — your best machines, days and setups — drawn entirely from your own history.</p>
+          <h3>Your best-fit profile</h3>
+          <p>The top card shows the machine, denomination, bet range and session length where you've performed best, along with your win rate there.</p>
+          <h3>Best days and peak window</h3>
+          <p>A bar chart highlights your strongest day historically, and your <b style="color:var(--text-hi)">peak window</b> points to the time of day your sessions have gone best.</p>
+        </div>
+        <div class="feature-shot"><img src="images/shot-4.jpg" alt="SlotIQ Forecast Center" loading="lazy" /></div>
+      </div>
+      <div class="callout amber">
+        <span class="ct">Patterns from your past — not a crystal ball</span>
+        Every insight here is <b>historical and descriptive.</b> "Wednesday has been your strongest day" means exactly that — what
+        happened, not a promise about next Wednesday. Use it to understand your tendencies, never as a prediction of outcomes.
+      </div>
+    </section>
+
+    <!-- ===================== 7 COMMUNITY ===================== -->
+    <section class="guide-section" id="community">
+      <div class="feature-grid" style="padding-top: 12px;">
+        <div class="feature-copy">
+          <span class="eyebrow cyan">SECTION 7</span>
+          <h2>Community insights: the power of pooled data</h2>
+          <p class="lede">The Community board pools <b style="color:var(--text-hi)">anonymized</b> data from every SlotIQ player into one place:
+            real RTP across machines, casinos and states.</p>
+          <h3>Reading the board</h3>
+          <p>You'll see the highest and lowest community RTP by machine (grouped by name and version), plus how many sessions the community has pooled. Filter by your state and casino.</p>
+          <h3>Tap a machine for the deep dive</h3>
+          <p>Tapping any machine opens a full insights page: community RTP, players and plays, hit rate, biggest logged win, an RTP-over-time trend, plus breakdowns by casino, time of day and denomination — and how it ranks.</p>
+        </div>
+        <div class="feature-shot"><img src="images/shot-5.jpg" alt="SlotIQ Community board" loading="lazy" /></div>
+      </div>
+      <div class="callout green">
+        <span class="ct">Anonymous, honest, and historical</span>
+        Community data is aggregated and anonymized — counts and averages, never anyone's identity. A machine only appears once enough
+        different players have logged it, so it can never be one person's data in disguise. And like everything in SlotIQ, it's a
+        historical record — not a "what to play" recommendation.
+      </div>
+    </section>
+
+    <!-- ===================== 8 PREMIUM ===================== -->
+    <section class="guide-section" id="premium">
+      <span class="eyebrow purple">SECTION 8</span>
+      <h2>Free vs. Premium, and getting the most out of SlotIQ</h2>
+      <div class="plan-grid guide-plans" style="margin-top: 22px;">
+        <div class="plan-card">
+          <h3 style="color:var(--green); margin:0 0 10px;">Free, forever</h3>
+          <ul class="checks">
+            <li>Unlimited session tracking</li>
+            <li>Your Numbers &amp; lifetime totals</li>
+            <li>Profit / Loss charts</li>
+            <li>Full session history</li>
+            <li>Achievements</li>
+          </ul>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-flag">$12.99/MO · $89.99/YR</div>
+          <h3 style="color:var(--purple); margin:0 0 10px;">SlotIQ Premium</h3>
+          <ul class="checks">
+            <li>Player IQ Score &amp; monthly trend</li>
+            <li>Gambling DNA profile</li>
+            <li>Forecast Center</li>
+            <li>Community insights board</li>
+            <li>Deep machine &amp; time analysis</li>
+          </ul>
+        </div>
+      </div>
+      <p>Premium features show up in the app right away, displayed blurred, so you always know what you're getting before you upgrade. Cancel anytime.</p>
+
+      <h3>Five habits that make SlotIQ shine</h3>
+      <ul class="checks">
+        <li><b style="color:var(--text-hi)">Log every visit</b> — even the quick ones. History powers every screen.</li>
+        <li><b style="color:var(--text-hi)">Fill in the Machine ID</b> so your machine analysis is precise to the exact cabinet.</li>
+        <li><b style="color:var(--text-hi)">Try Advanced mode</b> for a richer, more accurate Gambling DNA.</li>
+        <li><b style="color:var(--text-hi)">Check Community</b> before and after a trip to see how your machines compare.</li>
+        <li><b style="color:var(--text-hi)">Watch your IQ trend</b> month to month — small, steady habits move it the most.</li>
+      </ul>
+      <div class="callout">
+        <span class="ct">A note on playing responsibly</span>
+        SlotIQ is a personal statistics and tracking tool. It does not gamble, and it makes no predictions or guarantees about outcomes
+        — it simply reflects your real history so you can play more mindfully. Set limits that work for you, and play responsibly.
+      </div>
+
+      <div class="download-card reveal" style="margin: 34px 0 10px; text-align:center;">
+        <h2 style="color:var(--text-hi);">Track smarter. <span class="grad">Play sharper.</span></h2>
+        <p>Download SlotIQ free and put this guide to work.</p>
+        <div class="store-row center">
+          <a class="store-btn" href="https://apps.apple.com/us/app/slot-injection-pro/id6740422062" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/search?q=slot%20injection%20pro&c=apps&hl=en_US" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.81C3.23 2.21 3 2.83 3 3.63v16.74c0 .8.23 1.42.61 1.82l.1.09 9.38-9.38v-.21L3.71 1.71l-.1.1zm13.79 6.84-3.13 3.13v.21l3.13 3.14 3.62-2.06c1.04-.59 1.04-1.55 0-2.14l-3.62-2.06v-.22zM4.05 22.6c.34.36.9.4 1.53.05l11.1-6.31-3.42-3.41-9.21 9.67zm0-21.2 9.21 9.66 3.42-3.4L5.58 1.34c-.63-.36-1.19-.31-1.53.06z"/></svg>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-word">SLOT<em>IQ</em></span>
+        <p>Player intelligence through statistics.</p>
+      </div>
+      <div class="footer-col">
+        <h5>App</h5>
+        <a href="index.html#features">Features</a>
+        <a href="guide.html">Guide</a>
+        <a href="index.html#community">Community</a>
+        <a href="index.html#download">Download</a>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <a href="pages/support.html">Support</a>
+        <a href="pages/bugs-updates.html">Bugs &amp; Updates</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="pages/terms-of-service.html">Terms of Service</a>
+        <a href="pages/privacy-policy.html">Privacy Policy</a>
+        <a href="pages/privacy.html">Privacy Information</a>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>SlotIQ is a personal statistics and tracking tool. It does not involve real-money gambling and makes no predictions or guarantees about outcomes. Please play responsibly.</p>
+      <p>© <span id="year"></span> Coastal Apex Ventures LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !burger.contains(e.target)) navLinks.classList.remove('open');
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) en.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
